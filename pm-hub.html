@@ -1,0 +1,1633 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#F1EAD9;
+  --bg-card:#FBF7EC;
+  --border:#E1D6BE;
+  --border-soft:#EAE0C9;
+  --text:#1C1813;
+  --text-body:#4A463D;
+  --text-dim:#6E695D;
+  --text-faint:#A39C89;
+  --accent:#8B4A5C;
+  --accent-soft:#F2DFE2;
+  --ink:#8B4A5C;
+  --ink-dim:#C79AA4;
+  --pill-dark:#18140F;
+  --pill-dark-text:#F1EAD9;
+  --good:#5C7A54;
+  --font-display:'Fraunces', serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;}
+
+.hub{max-width:1080px;margin:0 auto;padding:0 32px 120px;}
+
+/* ---------- TOPBAR ---------- */
+.topbar{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:26px 32px;border-bottom:1px solid var(--border);}
+.topbar .logo{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:21px;color:var(--text);text-decoration:none;}
+.topbar nav{display:flex;align-items:center;gap:26px;}
+.topbar nav a{font-family:var(--font-body);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;}
+.topbar nav a:hover{color:var(--accent);}
+.topbar .cv-pill{background:var(--pill-dark);color:var(--pill-dark-text);font-size:12px;letter-spacing:.04em;padding:9px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;}
+
+/* ---------- HERO ---------- */
+.hero{padding:56px 0 40px;}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:12px;letter-spacing:.14em;color:var(--text-dim);text-transform:uppercase;margin-bottom:22px;}
+.eyebrow .dash{width:26px;height:1px;background:var(--accent);display:inline-block;}
+.hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4.6vw,52px);letter-spacing:-0.01em;line-height:1.18;margin:0 0 22px;max-width:16ch;color:var(--text);}
+.hero h1 em{font-style:italic;color:var(--accent);border-bottom:1.5px solid var(--ink-dim);padding-bottom:2px;}
+.hero .lede{color:var(--text-body);font-size:16.5px;max-width:58ch;margin:0 0 30px;}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:52px;}
+.btn-dark{background:var(--pill-dark);color:var(--pill-dark-text);font-size:13.5px;padding:12px 22px;border-radius:100px;text-decoration:none;font-family:var(--font-body);}
+.btn-outline{border:1px solid var(--border);color:var(--text);font-size:13.5px;padding:11px 21px;border-radius:100px;text-decoration:none;font-family:var(--font-body);background:transparent;}
+.btn-outline:hover, .btn-dark:hover{opacity:.85;}
+
+/* ---------- STAT ROW ---------- */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:30px 0;margin-bottom:8px;}
+.stat{padding:0 24px;border-left:1px solid var(--border);}
+.stat:first-child{border-left:none;padding-left:0;}
+.stat .num{font-family:var(--font-display);font-size:clamp(26px,3vw,36px);color:var(--text);font-style:italic;}
+.stat .label{font-family:var(--font-body);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-top:4px;}
+
+/* ---------- LOOP DIAGRAM ---------- */
+.loop-wrap{margin:56px auto 8px;max-width:560px;}
+.loop-diagram{width:100%;height:auto;display:block;}
+.loop-node{cursor:pointer;}
+
+.loop-node circle.ring{fill:var(--bg-card);stroke:var(--border);stroke-width:1.5;transition:stroke .18s ease, fill .18s ease;}
+.loop-node:hover circle.ring{stroke:var(--ink);fill:var(--accent-soft);}
+.loop-node text.num{font-family:var(--font-mono);font-size:11px;fill:var(--accent);}
+.loop-node text.label{font-family:var(--font-mono);font-size:13px;fill:var(--text);font-weight:500;}
+.loop-node text.sub{font-family:var(--font-body);font-size:10.5px;fill:var(--text-faint);}
+.loop-edge{fill:none;stroke:var(--border);stroke-width:1.5;}
+.loop-center-ring{fill:none;stroke:var(--border-soft);stroke-width:1;stroke-dasharray:2 4;}
+.loop-center text{font-family:var(--font-mono);font-size:11px;fill:var(--text-faint);letter-spacing:.08em;}
+
+/* ---------- QUICK NAV ---------- */
+.quicknav{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:44px 0 56px;}
+.nav-panel{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:10px;padding:20px 20px 16px;}
+.nav-panel h3{font-family:var(--font-body);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin:0 0 14px;font-weight:600;}
+.nav-panel ul{list-style:none;margin:0;padding:0;}
+.nav-panel li{margin-bottom:9px;}
+.nav-panel a{color:var(--text);text-decoration:none;font-size:14px;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .15s ease, color .15s ease;}
+.nav-panel a:hover{color:var(--ink);border-color:var(--ink);}
+
+/* ---------- SECTION HEADERS ---------- */
+.section-head{display:flex;align-items:baseline;gap:12px;margin:56px 0 18px;padding-top:8px;}
+.section-head .idx{font-family:var(--font-display);font-style:italic;color:var(--accent);font-size:20px;}
+.section-head h2{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0;}
+.section-head .arrow{color:var(--text-faint);font-family:var(--font-body);font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-left:auto;}
+
+/* ---------- GUIDE PANEL ---------- */
+.guide-overlay{position:fixed;inset:0;background:rgba(28,24,19,0.45);z-index:200;display:none;}
+.guide-overlay.open{display:block;}
+.guide-panel{position:fixed;top:0;right:0;bottom:0;width:min(680px,92vw);background:var(--bg);border-left:1px solid var(--border);z-index:201;transform:translateX(100%);transition:transform .28s ease;overflow-y:auto;box-shadow:-8px 0 32px rgba(28,24,19,0.18);}
+.guide-panel.open{transform:translateX(0);}
+.guide-panel-head{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:2;}
+.guide-panel-head h3{font-family:var(--font-display);font-style:italic;font-weight:400;font-size:24px;margin:0;color:var(--text);}
+.guide-close{background:var(--pill-dark);color:var(--pill-dark-text);border:none;width:34px;height:34px;border-radius:100px;font-size:18px;cursor:pointer;flex-shrink:0;line-height:1;}
+.guide-panel-body{padding:8px 24px 40px;font-size:14.5px;line-height:1.65;color:var(--text-body);}
+.guide-panel-body h1{font-family:var(--font-display);font-style:italic;font-size:20px;font-weight:400;margin:24px 0 10px;color:var(--text);}
+.guide-panel-body h2{font-size:15px;font-weight:600;margin:22px 0 8px;color:var(--text);text-transform:uppercase;letter-spacing:.04em;}
+.guide-panel-body h3{font-size:14.5px;font-weight:600;margin:16px 0 6px;color:var(--text);}
+.guide-panel-body p{margin:0 0 12px;}
+.guide-panel-body ul,.guide-panel-body ol{margin:0 0 14px;padding-left:22px;}
+.guide-panel-body li{margin-bottom:5px;}
+.guide-panel-body a{color:var(--accent);}
+.guide-panel-body strong{color:var(--text);font-weight:600;}
+.guide-panel-body blockquote{border-left:3px solid var(--accent);margin:0 0 14px;padding:4px 0 4px 14px;color:var(--text-dim);font-style:italic;}
+.guide-panel-body table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:13.5px;}
+.guide-panel-body th,.guide-panel-body td{border:1px solid var(--border-soft);padding:6px 10px;text-align:left;}
+.guide-panel-body th{background:var(--accent-soft);font-weight:600;}
+.guide-panel-body hr{border:none;border-top:1px solid var(--border);margin:18px 0;}
+.guide-panel-meta{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;margin:2px 0 4px;}
+
+/* ---------- METHOD LIBRARY TABLE ---------- */
+.lib-controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 16px;}
+.lib-search{font-family:var(--font-body);font-size:13px;padding:9px 14px;border:1px solid var(--border);border-radius:100px;background:var(--bg-card);color:var(--text);min-width:200px;}
+.lib-search:focus{outline:none;border-color:var(--accent);}
+.lib-filter{font-family:var(--font-body);font-size:12px;padding:7px 14px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text-dim);cursor:pointer;white-space:nowrap;}
+.lib-filter.active{background:var(--pill-dark);color:var(--pill-dark-text);border-color:var(--pill-dark);}
+.lib-count{font-family:var(--font-body);font-size:12px;color:var(--text-faint);margin-left:auto;}
+.lib-table-wrap{overflow-x:auto;border:1px solid var(--border-soft);border-radius:10px;background:var(--bg-card);}
+.lib-table{width:100%;border-collapse:collapse;font-size:13.5px;}
+.lib-table thead th{text-align:left;font-family:var(--font-body);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);padding:12px 14px;border-bottom:1px solid var(--border);white-space:nowrap;}
+.lib-table tbody tr{border-bottom:1px solid var(--border-soft);}
+.lib-table tbody tr:last-child{border-bottom:none;}
+.lib-table tbody tr:hover{background:var(--accent-soft);}
+.lib-table td{padding:11px 14px;vertical-align:middle;}
+.lib-table td.lib-name a{color:var(--text);text-decoration:none;font-weight:500;}
+.lib-table td.lib-name a:hover{color:var(--accent);}
+.lib-pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:100px;font-family:var(--font-body);white-space:nowrap;}
+.lib-tag{display:inline-block;font-size:10.5px;padding:2px 9px;border-radius:100px;background:var(--bg);border:1px solid var(--border);color:var(--text-dim);margin:0 4px 4px 0;white-space:nowrap;}
+.lib-dur{font-family:var(--font-mono);font-size:11.5px;color:var(--text-dim);}
+.cat-understand{background:#DCE8F5;color:#2C5C82;}
+.cat-frame{background:#EAE1F5;color:#5B3E8C;}
+.cat-ideas{background:#FBF0D1;color:#8A6D1D;}
+.cat-evaluate{background:#E1F0E3;color:#2F6B3A;}
+.cat-decide{background:#DCEFEC;color:#1F6F63;}
+.cat-goals{background:#FBE6DA;color:#9A4E22;}
+.cat-discuss{background:#F5DEE3;color:#8B4A5C;}
+.cat-techniques{background:#EDE7D8;color:#6E695D;}
+.cat-recipe{background:#F3DCCB;color:#8C4A22;}
+
+/* ---------- DETAILS / ACCORDION ---------- */
+details.skill{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+details.skill[open]{border-color:var(--border);}
+details.skill summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;align-items:center;gap:14px;font-family:var(--font-body);}
+details.skill summary::-webkit-details-marker{display:none;}
+details.skill summary .chevron{margin-left:auto;color:var(--text-faint);transition:transform .18s ease;font-size:13px;}
+details.skill[open] summary .chevron{transform:rotate(90deg);}
+details.skill summary .s-title{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:18px;color:var(--text);}
+details.skill summary .s-num{color:var(--accent);font-size:12px;}
+details.skill .body{padding:0 22px 24px;}
+details.skill .body h4{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin:20px 0 8px;font-weight:500;}
+details.skill .body h4:first-child{margin-top:4px;}
+details.skill .body p{margin:0 0 8px;font-size:14.5px;color:var(--text-body);}
+details.skill .body ul,details.skill .body ol{margin:0 0 4px;padding-left:20px;font-size:14.5px;color:var(--text-body);}
+details.skill .body li{margin-bottom:6px;}
+details.skill .body li b{color:var(--text);}
+.checklist{list-style:none;padding:0;margin:0;}
+.checklist li{padding-left:22px;position:relative;margin-bottom:7px;font-size:14px;color:var(--text-body);}
+.checklist li::before{content:"☐";position:absolute;left:0;color:var(--text-faint);font-family:var(--font-mono);}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.chip{font-family:var(--font-mono);font-size:11.5px;background:var(--accent-soft);border:1px solid var(--border);color:var(--text-dim);padding:4px 10px;border-radius:100px;text-decoration:none;}
+.chip:hover{color:var(--ink);border-color:var(--ink-dim);}
+
+/* ---------- FRAMEWORKS ---------- */
+.fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fw-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:10px;padding:18px 20px;}
+.fw-card h4{font-family:var(--font-body);font-size:15px;margin:0 0 8px;color:var(--text);font-weight:600;}
+.fw-card p{margin:0;font-size:13.5px;color:var(--text-dim);}
+.fw-card table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12.5px;}
+.fw-card td{padding:5px 0;border-top:1px solid var(--border-soft);color:var(--text-dim);vertical-align:top;}
+.fw-card td:first-child{color:var(--text);width:46%;padding-right:10px;}
+.fw-wide{grid-column:1 / -1;}
+
+/* ---------- TEMPLATES ---------- */
+.tpl-card{background:var(--bg-card);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:12px;}
+.tpl-head{display:flex;align-items:center;gap:12px;padding:16px 20px;}
+.tpl-head .t-title{font-weight:600;font-size:14.5px;}
+.tpl-head .copy-btn{margin-left:auto;font-family:var(--font-mono);font-size:11.5px;background:var(--accent-soft);border:1px solid var(--border);color:var(--text-dim);padding:6px 12px;border-radius:6px;cursor:pointer;transition:border-color .15s ease,color .15s ease;}
+.tpl-head .copy-btn:hover{color:var(--ink);border-color:var(--ink-dim);}
+.tpl-head .copy-btn.copied{color:var(--good);border-color:var(--good);}
+.tpl-body{border-top:1px solid var(--border-soft);}
+.tpl-body pre{margin:0;padding:18px 20px;white-space:pre-wrap;font-family:var(--font-mono);font-size:12.5px;color:var(--text-dim);line-height:1.6;max-height:280px;overflow-y:auto;}
+
+/* ---------- FOOTER ---------- */
+.hub-footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--border);color:var(--text-faint);font-size:12.5px;font-family:var(--font-body);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.hub-footer .footer-logo{font-family:var(--font-display);font-style:italic;color:var(--text-dim);font-size:15px;}
+
+@media(max-width:720px){
+  .quicknav{grid-template-columns:1fr;}
+  .fw-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<div class="topbar">
+  <a href="#top" class="logo">pm-os</a>
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#frameworks">Frameworks</a>
+    <a href="#method-library">Methods</a>
+    <a href="#templates">Templates</a>
+    <a class="cv-pill" href="#skills">Explore ↓</a>
+  </nav>
+</div>
+
+<div class="hub" id="top">
+
+  <div class="hero">
+    <div class="eyebrow"><span class="dash"></span>PRODUCT DEVELOPMENT SYSTEM — PM-OS</div>
+    <h1>A system for turning <em>raw signals</em> into <em>shipped, measured</em> decisions.</h1>
+    <p class="lede">Five linked skills covering the front end of the product lifecycle — discovery, sizing, validation, prototyping, and experimentation — each one handing evidence to the next.</p>
+    <div class="cta-row">
+      <a class="btn-dark" href="#skills">Explore the skills</a>
+      <a class="btn-outline" href="#method-library">Browse methods</a>
+      <a class="btn-outline" href="#templates">Jump to templates</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">07</div><div class="label">Linked skills</div></div>
+      <div class="stat"><div class="num">50</div><div class="label">Method guides</div></div>
+      <div class="stat"><div class="num">06</div><div class="label">Frameworks</div></div>
+      <div class="stat"><div class="num">09</div><div class="label">Templates</div></div>
+    </div>
+  </div>
+
+  <div class="loop-wrap">
+    <svg class="loop-diagram" viewBox="0 0 600 610" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#D9CBAF"/>
+        </marker>
+      </defs>
+      <circle class="loop-center-ring" cx="300" cy="280" r="150"/>
+      <g class="loop-center">
+        <text x="300" y="276" text-anchor="middle">PM-OS</text>
+        <text x="300" y="292" text-anchor="middle" style="fill:var(--text-faint)">CORE LOOP</text>
+      </g>
+
+      <path class="loop-edge" marker-end="url(#arrow)" d="M337.2,107.1 L471.8,204.9"/>
+      <path class="loop-edge" marker-end="url(#arrow)" d="M494.8,275.7 L443.2,434.3"/>
+      <path class="loop-edge" marker-end="url(#arrow)" d="M383,478 L217,478"/>
+      <path class="loop-edge" marker-end="url(#arrow)" d="M156.8,434.3 L105.2,275.7"/>
+      <path class="loop-edge" marker-end="url(#arrow)" d="M128.2,204.9 L262.8,107.1"/>
+
+      <g class="loop-node" data-target="s-discovery">
+        <circle class="ring" cx="300" cy="80" r="38"/>
+        <text class="num" x="300" y="76" text-anchor="middle">01</text>
+        <text class="label" x="300" y="93" text-anchor="middle">Discovery</text>
+        <text class="sub" x="300" y="34" text-anchor="middle">what's the problem?</text>
+      </g>
+
+      <g class="loop-node" data-target="s-sizing">
+        <circle class="ring" cx="509" cy="232" r="38"/>
+        <text class="num" x="509" y="228" text-anchor="middle">02</text>
+        <text class="label" x="509" y="245" text-anchor="middle" style="font-size:11.5px">Market Sizing</text>
+        <text class="sub" x="559" y="232" text-anchor="start">is it worth it?</text>
+      </g>
+
+      <g class="loop-node" data-target="s-validation">
+        <circle class="ring" cx="429" cy="478" r="38"/>
+        <text class="num" x="429" y="474" text-anchor="middle">03</text>
+        <text class="label" x="429" y="491" text-anchor="middle" style="font-size:10.5px">Validation</text>
+        <text class="sub" x="429" y="536" text-anchor="middle">do they want THIS?</text>
+      </g>
+
+      <g class="loop-node" data-target="s-prototyping">
+        <circle class="ring" cx="171" cy="478" r="38"/>
+        <text class="num" x="171" y="474" text-anchor="middle">04</text>
+        <text class="label" x="171" y="491" text-anchor="middle" style="font-size:10.5px">Prototyping</text>
+        <text class="sub" x="171" y="536" text-anchor="middle">make it tangible</text>
+      </g>
+
+      <g class="loop-node" data-target="s-experimentation">
+        <circle class="ring" cx="91" cy="232" r="38"/>
+        <text class="num" x="91" y="228" text-anchor="middle">05</text>
+        <text class="label" x="91" y="245" text-anchor="middle" style="font-size:9.5px">Experiment</text>
+        <text class="sub" x="41" y="232" text-anchor="end">did it work?</text>
+      </g>
+    </svg>
+  </div>
+
+  <nav class="quicknav">
+    <div class="nav-panel">
+      <h3>🧭 Skills</h3>
+      <ul>
+        <li><a href="#s-discovery" class="jump" data-target="s-discovery">01 · Discovery</a></li>
+        <li><a href="#s-sizing" class="jump" data-target="s-sizing">02 · Market Sizing</a></li>
+        <li><a href="#s-validation" class="jump" data-target="s-validation">03 · Customer Validation</a></li>
+        <li><a href="#s-prototyping" class="jump" data-target="s-prototyping">04 · Prototyping</a></li>
+        <li><a href="#s-experimentation" class="jump" data-target="s-experimentation">05 · Experimentation</a></li>
+        <li><a href="#s-prd" class="jump" data-target="s-prd">06 · PRD Generation</a></li>
+        <li><a href="#s-strategy" class="jump" data-target="s-strategy">07 · Product Strategy System</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel">
+      <h3>📐 Frameworks</h3>
+      <ul>
+        <li><a href="#frameworks">Opportunity Solution Tree</a></li>
+        <li><a href="#frameworks">JTBD</a></li>
+        <li><a href="#frameworks">TAM / SAM / SOM</a></li>
+        <li><a href="#frameworks">ICE vs RICE</a></li>
+        <li><a href="#frameworks">Riskiest Assumption Test</a></li>
+        <li><a href="#frameworks">Method-picker table</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel">
+      <h3>🧰 Method Library</h3>
+      <ul>
+        <li><a href="#method-library">50 methods, searchable</a></li>
+        <li><a href="#method-library">6 multi-hour recipes</a></li>
+        <li><a href="#method-library">9 categories, filterable</a></li>
+      </ul>
+    </div>
+    <div class="nav-panel">
+      <h3>📋 Templates</h3>
+      <ul>
+        <li><a href="#card-discovery" class="jump" data-target="card-discovery">Discovery brief</a></li>
+        <li><a href="#card-sizing" class="jump" data-target="card-sizing">Market sizing doc</a></li>
+        <li><a href="#card-validation" class="jump" data-target="card-validation">Validation guide</a></li>
+        <li><a href="#card-prototype" class="jump" data-target="card-prototype">Prototype brief</a></li>
+        <li><a href="#card-experiment" class="jump" data-target="card-experiment">Experiment design/readout</a></li>
+        <li><a href="#card-vpc" class="jump" data-target="card-vpc">Value Proposition Canvas</a></li>
+        <li><a href="#card-prd" class="jump" data-target="card-prd">PRD template</a></li>
+        <li><a href="#card-strategy" class="jump" data-target="card-strategy">Strategy workspace</a></li>
+        <li><a href="#card-fullstrategy" class="jump" data-target="card-fullstrategy">Full strategy document</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ SKILLS ============ -->
+  <div class="section-head" id="skills"><span class="idx">I</span><h2>Skills</h2><span class="arrow">click to run</span></div>
+
+  <details class="skill" id="s-discovery">
+    <summary><span class="s-num">01</span><span class="s-title">Discovery</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Turn a vague signal — an exec ask, a support trend, a competitor move — into a scoped, evidence-backed opportunity worth sizing. Stops PMs from either chasing the wrong thing or jumping straight to solutions.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>You've been handed a one-line brief and need to turn it into something actionable</li>
+        <li>A metric moved and you don't know why yet</li>
+        <li>Kicking off a new cycle and need a fresh opportunity backlog</li>
+        <li>Someone jumped straight to a solution and it needs pressure-testing</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Restate the signal as a question, not a solution.</b> "Add dark mode" becomes "why are users asking for this, what job is it serving?"</li>
+        <li><b>Build an Opportunity Solution Tree.</b> Outcome → opportunities (customer language) → solutions only at the leaves.</li>
+        <li><b>Pull existing evidence before generating new evidence.</b> Look for convergence across at least two independent sources.</li>
+        <li><b>Apply a JTBD lens.</b> Write the job story for the top 2-4 opportunities.</li>
+        <li><b>Score and shortlist</b> with ICE — directional ranking, not false precision.</li>
+        <li><b>Flag what's still unknown</b> — a "what would change our mind" list per opportunity.</li>
+        <li><b>Write the one-page discovery brief.</b> A decision document, not a research report.</li>
+      </ol>
+      <h4>Output</h4>
+      <p>A discovery brief: reframed problem, opportunity tree, evidence summary with sourcing, job story, riskiest assumptions, recommendation.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Problem stated as a need, not a feature</li>
+        <li>≥2 independent evidence sources support the top opportunity, or the gap is flagged</li>
+        <li>Solutions are NOT decided yet</li>
+        <li>Riskiest assumption named explicitly</li>
+        <li>Someone can make a go/no-go call in under 5 minutes</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-sizing">→ Market Sizing</a>
+        <a class="chip jump" data-target="s-validation">→ Customer Validation</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-sizing">
+    <summary><span class="s-num">02</span><span class="s-title">Market Sizing</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Answer "is this big enough to matter" with a number you can defend in front of a CFO — not a vibe. TAM/SAM/SOM plus impact sizing, top-down and bottom-up so one checks the other.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>Deciding whether a discovered opportunity is worth resourcing</li>
+        <li>Quarterly/annual planning, ranking opportunities</li>
+        <li>Building a business case where you own commercial/P&amp;L framing</li>
+        <li>An exec asks "how big, really?" and gut-feel won't survive the room</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Define the addressable unit precisely.</b> "SMB merchants" isn't precise enough — state the segment exactly.</li>
+        <li><b>Top-down TAM → SAM → SOM.</b> State the formula and every input's source.</li>
+        <li><b>Bottom-up cross-check.</b> Build independently from current ARPU/take rate × addressable segment.</li>
+        <li><b>Triangulate.</b> If top-down and bottom-up are off by 10x, find out why before presenting either.</li>
+        <li><b>Size the opportunity's impact</b> via a driver tree, not just the market.</li>
+        <li><b>Give a range</b> — conservative / expected / optimistic — not a point estimate.</li>
+        <li><b>Write the sizing doc</b> — lead with the range and recommendation, maths after.</li>
+      </ol>
+      <h4>Output</h4>
+      <p>Sizing doc: addressable-unit definition, TAM/SAM/SOM, bottom-up cross-check, driver-tree impact, scenario range, sourced assumptions.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Every number traces to a source or is flagged as an assumption</li>
+        <li>Top-down and bottom-up both shown, gap explained</li>
+        <li>Addressable unit precise enough to reproduce</li>
+        <li>A range given, not a single point estimate</li>
+        <li>Ties to a metric the business actually tracks</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-validation">→ Customer Validation</a>
+        <span class="chip">→ pm-os prioritisation / roadmap</span>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-validation">
+    <summary><span class="s-num">03</span><span class="s-title">Customer Validation</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Test whether real customers actually have the problem, and whether the proposed direction addresses it — before engineering time finds out the hard way. Covers problem and solution validation.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>After Discovery produces a riskiest-assumptions list</li>
+        <li>Before writing a PRD for anything non-trivial</li>
+        <li>After Prototyping, to test a concept with real users</li>
+        <li>When a stakeholder is convinced and evidence is needed either way</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Turn the riskiest assumption into a falsifiable test.</b> State what evidence would prove it wrong, not just confirm it.</li>
+        <li><b>Match method to assumption type:</b> problem-exists → JTBD/switch interviews; willingness-to-pay → concierge/fake-door; solution-resonates → concept test; usability → moderated session on a prototype.</li>
+        <li><b>Write the guide before recruiting.</b> Ask about past behaviour, not hypothetical intentions.</li>
+        <li><b>Recruit for the segment</b>, not for convenience — include skeptics and non-users, not just power users.</li>
+        <li><b>Run sessions with separated roles</b> — one asks, one notes. Let silence sit.</li>
+        <li><b>Synthesise across sessions</b>, not within one — look for patterns across 5-8 conversations.</li>
+        <li><b>Write the readout</b> with a clear validated / invalidated / inconclusive call.</li>
+      </ol>
+      <h4>Output</h4>
+      <p>Validation readout: assumption tested, method, sample, synthesised findings by theme, clear call, recommended next step.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>The assumption was falsifiable and could have been disproven</li>
+        <li>Questions asked about past behaviour</li>
+        <li>Findings synthesised across sessions, not one anecdote</li>
+        <li>Recruitment matched the target segment</li>
+        <li>Readout gives a clear call, including "inconclusive" if honest</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-prototyping">→ Prototyping</a>
+        <a class="chip jump" data-target="s-experimentation">→ Experimentation</a>
+        <a class="chip jump" data-target="s-prd">→ PRD Generation</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-prototyping">
+    <summary><span class="s-num">04</span><span class="s-title">Prototyping</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Make an opportunity tangible enough to react to — as cheaply as the question requires. The core discipline is matching fidelity to the question, not defaulting to the most impressive option.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>After problem validation, to test whether a direction resonates</li>
+        <li>Before a full PRD, to de-risk direction with stakeholders cheaply</li>
+        <li>When engineering needs something concrete to scope effort</li>
+        <li>When a concept needs a usability pass before build</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Name the ONE question first.</b> Concept sense-check → sketch. Flow logic → low-fi wireframe. Feel/trust → high-fi mockup. End-to-end → coded/Wizard-of-Oz. Real behaviour → smoke test.</li>
+        <li><b>Write the prototype brief before building</b> — question, fidelity + why, scenario covered, what "useful signal" looks like.</li>
+        <li><b>Build the smallest version</b> that answers the question — resist extra polish and edge cases.</li>
+        <li><b>Pick the test format</b> — moderated for ambiguous concepts, unmoderated once the flow is concrete, in-context/smoke test for real behaviour.</li>
+        <li><b>Run it via the Customer Validation method</b> — same past-behaviour, don't-lead discipline.</li>
+        <li><b>Separate user-reaction signal from technical-scoping signal</b> if gathering both.</li>
+      </ol>
+      <h4>Output</h4>
+      <p>A prototype at the chosen fidelity, plus a brief: question answered, fidelity rationale, scenario, and (post-test) findings.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Primary question stated explicitly, fidelity matches it</li>
+        <li>Nothing built beyond what the question requires</li>
+        <li>Test format matches the concept's maturity</li>
+        <li>User-reaction and technical-scoping signal kept separate</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-validation">→ Customer Validation</a>
+        <a class="chip jump" data-target="s-experimentation">→ Experimentation</a>
+        <a class="chip jump" data-target="s-prd">→ PRD Generation</a>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-experimentation">
+    <summary><span class="s-num">05</span><span class="s-title">Experimentation</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Design and read experiments that actually answer the question they're meant to — pre-registered and statistically sound, not a story fitted to the dashboard afterward.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>Something's shipped and you need to know its real impact</li>
+        <li>Before launch, to pre-register success and avoid post-hoc metric shopping</li>
+        <li>Reading someone else's results and sanity-checking the conclusion</li>
+        <li>Prioritising which of several ideas to test first given limited traffic</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Write a single-variable, falsifiable hypothesis.</b> One primary metric, one primary change.</li>
+        <li><b>Pre-register success criteria and decision rule</b> before launch — the biggest defence against post-hoc rationalisation.</li>
+        <li><b>Calculate sample size and duration up front.</b> No peeking-and-stopping-early.</li>
+        <li><b>Choose the right design</b> — A/B, A/B/n, sequential/holdout, or pre/post with explicit confound caveats.</li>
+        <li><b>Define guardrail metrics</b> that must not move the wrong way even if the primary metric looks great.</li>
+        <li><b>Run the full pre-registered duration</b>, noting external events.</li>
+        <li><b>Read against the pre-registered plan</b>, not retroactively. Distinguish "no effect" from "no detectable effect at this sample size."</li>
+      </ol>
+      <h4>Output</h4>
+      <p>Experiment design doc pre-launch, readout post-launch: hypothesis, MDE, sample/duration, design, guardrails, and the result read against the decision rule.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Hypothesis names one mechanism, one primary metric</li>
+        <li>Success criteria written before results came in</li>
+        <li>Sample size/duration calculated, not eyeballed</li>
+        <li>Guardrails checked, not just the primary metric</li>
+        <li>Full duration run, or early stop explicitly justified</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-discovery">→ back to Discovery</a>
+        <span class="chip">→ pm-os prioritisation / roadmap</span>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-prd">
+    <summary><span class="s-num">06</span><span class="s-title">PRD Generation</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Turn a validated opportunity — a strategy, a roadmap item, a partial brief, or a conversation — into an implementation-ready PRD. An engineering team should be able to start building from the output immediately.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>Writing a PRD, spec, or requirements document</li>
+        <li>Turning validated discovery/prototyping findings into user stories</li>
+        <li>Asked "what should we build" and the answer needs to be specific enough to hand to engineering</li>
+        <li>Reviewing someone else's PRD for gaps against the checklist below</li>
+      </ul>
+      <h4>Process</h4>
+      <ol>
+        <li><b>Understand the context.</b> Extract vision, users, pillars, in-scope features, constraints, success metrics from a strategy/roadmap — or gather the same via conversation.</li>
+        <li><b>Define the product overview.</b> One-sentence vision, problem statement, target users, success metrics.</li>
+        <li><b>Write user stories, grouped into epics.</b> "As a [user], I want to [action] so that [benefit]." 3-5 testable acceptance criteria each, MoSCoW priority, effort, strategic link. Sequential IDs (US-001...).</li>
+        <li><b>Define functional requirements.</b> Cover Auth, Core Features, Data Management, Integration, Reporting & Analytics. Every FR traces to a user story and strategic objective.</li>
+        <li><b>Define non-functional requirements — with numbers.</b> Performance, Security, Scalability, Reliability, Usability, Maintainability — each with a testable threshold, not a vibe.</li>
+        <li><b>List open questions and risks</b>, each risk with a mitigation.</li>
+        <li><b>Run a final clarity pass</b> before sharing — cut hedging and jargon.</li>
+      </ol>
+      <h4>Output</h4>
+      <p>A PRD: product overview, epics of user stories with acceptance criteria, functional requirements, non-functional requirements with numeric thresholds, technical specs, constraints, success criteria, open questions and risks. See the PRD template below for the full structure.</p>
+      <h4>Rules</h4>
+      <ul>
+        <li><b>Specific, not vague.</b> "Fast" → "API responses &lt;200ms at p95." Every requirement must be testable.</li>
+        <li><b>Traceability is mandatory.</b> Every requirement links to a user need and a strategic objective.</li>
+        <li><b>Not everything is P0.</b> Apply MoSCoW honestly — Must Have is the MVP, not a wish list.</li>
+        <li><b>Cover the unhappy paths.</b> Error cases, edge cases, failure scenarios — this is where quality lives.</li>
+        <li><b>NFRs need numbers.</b> No NFR without a testable threshold.</li>
+        <li><b>Preserve source language.</b> Use the same terms the strategy/brief uses for segments, features, metrics.</li>
+      </ul>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Product overview links to strategy (pillar, JTBD) or states there isn't one yet</li>
+        <li>User stories in correct format with 3-5 acceptance criteria each</li>
+        <li>MoSCoW prioritisation applied honestly — not everything Must Have</li>
+        <li>Functional requirements are specific and testable</li>
+        <li>NFRs have numeric thresholds, not "fast" or "secure"</li>
+        <li>Every requirement traces to a user story and strategic objective</li>
+        <li>Unhappy paths covered</li>
+        <li>Open questions and risks (with mitigations) listed</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-experimentation">→ Experimentation (guardrail metrics)</a>
+        <span class="chip">→ pm-os prioritisation / roadmap</span>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="s-strategy">
+    <summary><span class="s-num">07</span><span class="s-title">Product Strategy System</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Purpose</h4>
+      <p>Produce a product strategy that's evidenced, coherent, and actually usable for prioritisation — through four sequential phases, each with a human checkpoint before the next begins.</p>
+      <h4>When to use</h4>
+      <ul>
+        <li>Setting or refreshing strategy for a product area, product line, or new bet</li>
+        <li>Onboarding into a product area and building the strategic picture from scratch</li>
+        <li>A roadmap keeps getting re-litigated with no written strategy to point back to</li>
+        <li>Company priorities shifted and the existing strategy needs re-testing</li>
+      </ul>
+      <h4>The four phases</h4>
+      <ol>
+        <li><b>Gather Context</b> — pull current performance, company-level priorities, competitive landscape, prior strategy, and known constraints into a facts-only context brief. No direction or opinions yet.</li>
+        <li><b>Research</b> — fill the specific gaps the context brief exposed. Let open questions drive the research, not a generic literature review. Mix external (market, competitors) and internal (customers, usage data) sources.</li>
+        <li><b>Write</b> — turn context + research into a specific, falsifiable point of view: where to play, how to win, what capabilities that requires, strategic pillars, success metrics, and what's explicitly out of scope.</li>
+        <li><b>Review</b> — a structured critique pass before it ships: falsifiable, evidenced, coherent, resourced, differentiated, and excludes something. Not "does this sound good."</li>
+      </ol>
+      <p>Each phase has its own checkpoint — don't skip one to save time. A checkpoint is what stops bad context or weak research from silently propagating into the final strategy.</p>
+      <h4>Output</h4>
+      <p>A strategy document stating where to play, how to win, required capabilities, strategic pillars, success metrics, and exclusions — built through the Strategy Workspace template, phase by phase.</p>
+      <h4>Quality checklist</h4>
+      <ul class="checklist">
+        <li>Context brief is fact-only, reviewed before research began</li>
+        <li>Research answers the specific open questions from context, not generic</li>
+        <li>Strategy states where to play AND where it won't</li>
+        <li>"How to win" is specific enough to be wrong</li>
+        <li>Strategic pillars trace directly to the "how to win"</li>
+        <li>Success metrics have targets and a timeframe</li>
+        <li>The review pass happened as a distinct step, not folded into writing</li>
+        <li>Something was explicitly excluded or deprioritised</li>
+      </ul>
+      <h4>Hands off to</h4>
+      <div class="chips">
+        <a class="chip jump" data-target="s-discovery">→ Discovery (pillars frame opportunities)</a>
+        <a class="chip jump" data-target="s-sizing">→ Market Sizing (target segment)</a>
+        <span class="chip">→ pm-os roadmap builder</span>
+      </div>
+    </div>
+  </details>
+
+  <!-- ============ FRAMEWORKS ============ -->
+  <div class="section-head" id="frameworks"><span class="idx">II</span><h2>Frameworks reference</h2></div>
+  <div class="fw-grid">
+    <div class="fw-card">
+      <h4>Opportunity Solution Tree</h4>
+      <p>Desired outcome at the top → opportunities (customer language) as branches → solutions only at the leaves. If you're debating solutions before opportunities are agreed, go back up the tree.</p>
+    </div>
+    <div class="fw-card">
+      <h4>Jobs-to-be-Done</h4>
+      <p>People "hire" a product to make progress in a situation. Job story: "When [situation], I want to [motivation], so I can [outcome]." Use switch interviews to uncover the job behind a decision.</p>
+    </div>
+    <div class="fw-card">
+      <h4>TAM / SAM / SOM</h4>
+      <p>TAM = full opportunity at 100% penetration. SAM = reachable slice given your model today. SOM = realistically capturable within a time horizon. Always build top-down and bottom-up and triangulate.</p>
+    </div>
+    <div class="fw-card">
+      <h4>ICE vs RICE</h4>
+      <p><b style="color:var(--text)">ICE</b> = Impact × Confidence × Ease — fast, directional, good early. <b style="color:var(--text)">RICE</b> = (Reach × Impact × Confidence) / Effort — better once reach is estimable from real usage data.</p>
+    </div>
+    <div class="fw-card">
+      <h4>Riskiest Assumption Test</h4>
+      <p>List every assumption an opportunity depends on. Identify the one that, if false, invalidates everything else. Test that one first, cheaply, before investing further.</p>
+    </div>
+    <div class="fw-card">
+      <h4>Build–Measure–Learn / AARRR</h4>
+      <p>Minimize the loop, not the build scope — fastest possible cycle through the smallest testable thing. Pirate Metrics (Acquisition, Activation, Retention, Referral, Revenue) checks which funnel stage an idea actually targets.</p>
+    </div>
+    <div class="fw-card fw-wide">
+      <h4>Method-picker: matching the test to the assumption</h4>
+      <table>
+        <tr><td>Does the problem exist / matter?</td><td>JTBD interviews, switch interviews, support/churn analysis</td></tr>
+        <tr><td>Will people pay / prioritise this?</td><td>Concierge test, fake-door test, pre-sales conversations</td></tr>
+        <tr><td>Does the solution direction resonate?</td><td>Concept test, prototype walkthrough</td></tr>
+        <tr><td>Is a specific flow usable?</td><td>Moderated usability test on a low/mid-fi prototype</td></tr>
+        <tr><td>Did the shipped change actually work?</td><td>A/B test or sequential/holdout, pre-registered</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ METHOD LIBRARY ============ -->
+  <div class="section-head" id="method-library"><span class="idx">III</span><h2>Discovery method library</h2><span class="arrow">pick a method, run it</span></div>
+
+  <p style="font-size:14px;color:var(--text-body);margin:-4px 0 20px;">Click any method to read the full guide — purpose, materials, timing, steps, and further reading — right here. The same 50 guides also live as individual files in <a href="frameworks/method-guides/INDEX.md" style="color:var(--accent);">frameworks/method-guides/</a> in the repo.</p>
+
+  <details class="skill" id="ml-how-to-choose">
+    <summary><span class="s-num">→</span><span class="s-title">How to choose a method</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <h4>Where are you in discovery?</h4>
+      <ul>
+        <li>Just starting, need to define the problem → <b>Problem Understanding</b> or <b>Problem Framing</b> methods</li>
+        <li>Have a problem hypothesis, need to validate it → <b>Problem Validation</b> methods</li>
+        <li>Problem validated, need solution ideas → <b>Ideation</b> methods</li>
+        <li>Have solution ideas, need to test them → <b>Solution Validation</b> methods</li>
+        <li>Solution validated, need to plan delivery → <b>Decision &amp; Delivery Planning</b> methods</li>
+        <li>Team alignment, retro, or kickoff → <b>Team &amp; Facilitation</b> methods</li>
+      </ul>
+      <h4>How much time do you have?</h4>
+      <ul>
+        <li>Under 30 minutes → quick tools (Secret Vote, Theme Sort, Who/What/When, T-Bar)</li>
+        <li>30–60 minutes → single methods (Five Whys, Assumption Map, Priority Map...)</li>
+        <li>Half a day → recipes (Idea Storm, Get Unstuck, Project Kick-Off)</li>
+        <li>Full day or more → extended recipes (Design Dash, Team Time)</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="lib-controls">
+    <input type="text" class="lib-search" id="lib-search" placeholder="Search methods…">
+    <button class="lib-filter active" data-cat="All">All</button>
+    <button class="lib-filter" data-cat="Understand">Understand</button>
+    <button class="lib-filter" data-cat="Frame">Frame</button>
+    <button class="lib-filter" data-cat="Ideas">Ideas</button>
+    <button class="lib-filter" data-cat="Evaluate">Evaluate</button>
+    <button class="lib-filter" data-cat="Decide">Decide</button>
+    <button class="lib-filter" data-cat="Goals">Goals</button>
+    <button class="lib-filter" data-cat="Discuss">Discuss</button>
+    <button class="lib-filter" data-cat="Techniques">Techniques</button>
+    <button class="lib-filter" data-cat="Recipe">Recipe</button>
+    <span class="lib-count" id="lib-count"></span>
+  </div>
+  <div class="lib-table-wrap">
+    <table class="lib-table">
+      <thead><tr><th>Name</th><th>Category</th><th>Duration</th><th>Tags</th></tr></thead>
+      <tbody id="lib-table-body"></tbody>
+    </table>
+  </div>
+
+  <details class="skill" id="ml-recipes">
+    <summary><span class="s-num">→</span><span class="s-title">Recipes (multi-hour sequences)</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+        <thead><tr style="text-align:left;color:var(--text-dim);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">
+          <th style="padding:6px 10px 6px 0;">Recipe</th><th style="padding:6px 10px;">Duration</th><th style="padding:6px 10px;">Best for</th><th style="padding:6px 0;">Sequence</th>
+        </tr></thead>
+        <tbody id="ml-recipes-body"></tbody>
+      </table>
+      </div>
+    </div>
+  </details>
+
+  <details class="skill" id="ml-categories">
+    <summary><span class="s-num">→</span><span class="s-title">Running any method</span><span class="chevron">›</span></summary>
+    <div class="body">
+      <ol>
+        <li>Confirm the primary question the method needs to answer (ties back to the riskiest assumption from Discovery)</li>
+        <li>Open the full guide via the library table above for the standard steps</li>
+        <li>Facilitating live: set purpose, timing and steps up front. Working solo/async: adapt the steps for individual use</li>
+        <li>Capture the output clearly and carry it into the next step — validation, sizing, or prototyping — rather than letting it sit unused</li>
+      </ol>
+    </div>
+  </details>
+
+  <!-- ============ TEMPLATES ============ -->
+  <div class="section-head" id="templates"><span class="idx">IV</span><h2>Templates</h2><span class="arrow">copy → paste into a new doc</span></div>
+
+  <div class="tpl-card" id="card-discovery">
+    <div class="tpl-head"><span class="t-title">Discovery brief</span><button class="copy-btn" data-copy="tpl-discovery">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-discovery"># Discovery Brief: [Opportunity Name]
+
+**Author:** · **Date:** · **Status:** Draft / Ready for review / Decided
+
+## 1. Original signal
+What triggered this (verbatim ask, ticket, metric, quote):
+
+## 2. Reframed problem statement
+Not a solution — the customer need, in their language:
+
+## 3. Opportunity Solution Tree (top branches)
+**Desired outcome:**
+- Opportunity 1:
+- Opportunity 2:
+- Opportunity 3:
+
+## 4. Evidence summary
+| Source | What it shows | Strength (strong/moderate/weak) |
+|---|---|---|
+| | | |
+
+## 5. Job story
+When [situation], I want to [motivation], so I can [expected outcome].
+
+## 6. Opportunity scoring (ICE)
+| Opportunity | Impact | Confidence | Ease | Score |
+|---|---|---|---|---|
+| | | | | |
+
+## 7. Riskiest assumptions
+1.
+2.
+3.
+
+## 8. Recommendation
+- [ ] Size it
+- [ ] Validate the riskiest assumption first
+- [ ] Park — not enough evidence / not aligned to strategy</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-sizing">
+    <div class="tpl-head"><span class="t-title">Market sizing doc</span><button class="copy-btn" data-copy="tpl-sizing">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-sizing"># Market Sizing: [Opportunity Name]
+
+**Author:** · **Date:**
+
+## Recommendation (lead with this)
+Range: [conservative] – [expected] – [optimistic]
+Call:
+
+## 1. Addressable unit definition
+Precisely who/what is in scope:
+
+## 2. Top-down (TAM / SAM / SOM)
+- TAM = [# of units] × [value per unit] × [relevant %] = £___ (source: )
+- SAM: £___ (constraints applied: )
+- SOM (time horizon: ___): £___ (assumed penetration: ___%)
+
+## 3. Bottom-up cross-check
+Built from: current ARPU/take rate × addressable segment in existing data = £___
+
+## 4. Triangulation
+Gap between top-down and bottom-up: ___×
+Explanation if >2-3x gap:
+
+## 5. Driver tree impact estimate
+Target metric = [driver 1] × [driver 2] × [driver 3]
+This opportunity affects: [driver] by [estimated %], because [benchmark/pilot/comparable]
+
+## 6. Scenarios
+| | Conservative | Expected | Optimistic |
+|---|---|---|---|
+| Key assumption | | | |
+| Resulting impact | | | |
+
+## 7. Assumptions & sources
+1.
+2.
+3.</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-validation">
+    <div class="tpl-head"><span class="t-title">Validation guide</span><button class="copy-btn" data-copy="tpl-validation">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-validation"># Validation Guide: [Assumption being tested]
+
+**Author:** · **Date:**
+
+## Assumption under test
+State it in falsifiable form:
+
+## What would prove this wrong
+(Not what would confirm it)
+
+## Method
+- [ ] JTBD / switch interview
+- [ ] Concierge / fake-door test
+- [ ] Concept test
+- [ ] Usability test on prototype
+- [ ] Other:
+
+## Target segment & recruitment
+Who, how many, how recruited (include skeptics/non-users):
+
+## Interview guide
+Opening (context-setting, no leading):
+1.
+2.
+
+Past-behaviour probes (avoid hypothetical "would you..." questions):
+1.
+2.
+
+Closing:
+-
+
+## Session log
+| # | Participant (role/segment) | Key notes |
+|---|---|---|
+| 1 | | |
+
+## Synthesis (across all sessions)
+| Theme | # of participants | Representative note |
+|---|---|---|
+| | | |
+
+## Call
+- [ ] Validated
+- [ ] Invalidated
+- [ ] Inconclusive — reason:
+
+## Recommended next step</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-prototype">
+    <div class="tpl-head"><span class="t-title">Prototype brief</span><button class="copy-btn" data-copy="tpl-prototype">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-prototype"># Prototype Brief: [Name]
+
+**Author:** · **Date:**
+
+## Primary question this prototype must answer
+(One question only)
+
+## Fidelity level chosen
+- [ ] Sketch / concept description
+- [ ] Low-fi clickable wireframe
+- [ ] High-fi visual mockup
+- [ ] Coded / Wizard-of-Oz prototype
+- [ ] Smoke test / fake-door in real environment
+
+Why this level (not higher, not lower):
+
+## Scenario / flow covered
+(Deliberately excludes edge cases not needed to answer the primary question)
+
+## Test format
+- [ ] Moderated
+- [ ] Unmoderated
+- [ ] In-context / live
+
+## What "useful signal" looks like
+
+---
+
+## Findings (fill in after testing)
+**User-reaction signal:**
+**Technical-scoping signal (if gathered):**
+**Call:** Proceed to build / iterate concept / kill
+**Recommended next step:**</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-experiment">
+    <div class="tpl-head"><span class="t-title">Experiment design / readout</span><button class="copy-btn" data-copy="tpl-experiment">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-experiment"># Experiment: [Name]
+
+**Author:** · **Date launched:**
+
+## PRE-LAUNCH
+
+### Hypothesis
+If we [change], then [metric] will [move in direction] because [mechanism].
+
+### Primary metric & MDE
+Metric: · Baseline: · MDE we care about: ___%
+
+### Sample size / duration calculation
+Traffic/volume available: · Required sample: · Estimated duration:
+
+### Design
+- [ ] A/B  - [ ] A/B/n  - [ ] Sequential / holdout  - [ ] Pre/post (last resort)
+Confound risks:
+
+### Guardrail metrics
+1. — must not move by more than ___
+2. — must not move by more than ___
+
+### Decision rule
+If primary metric improves by ≥___% at significance level ___, we [ship/scale]. If not, we [don't ship/iterate/kill], because [reasoning].
+
+---
+
+## READOUT
+
+### Did it run the full duration? Yes / No — if no, why:
+
+### Primary metric result
+Observed effect: · Confidence level: · Hit pre-registered bar? Y/N
+
+### Guardrail check
+| Guardrail | Moved? | Within bounds? |
+|---|---|---|
+
+### External events during test window
+
+### Conclusion
+- [ ] Effect confirmed — ship/scale
+- [ ] No effect
+- [ ] No detectable effect at this sample size
+
+### Next step</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-vpc">
+    <div class="tpl-head"><span class="t-title">Value Proposition Canvas</span><button class="copy-btn" data-copy="tpl-vpc">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-vpc"># Value Proposition Canvas: [Product / Opportunity Name]
+
+**Author:** · **Date:** · **Segment:** [who this canvas is for — one segment per canvas]
+
+## Customer Profile
+
+### Customer jobs
+What the customer is trying to get done — functional, social, and emotional jobs.
+1.
+2.
+3.
+
+### Pains
+Bad outcomes, risks, and obstacles the customer experiences before, during, or after trying to get the job done. Rank by severity.
+1.
+2.
+3.
+
+### Gains
+Outcomes and benefits the customer wants or would be pleasantly surprised by. Rank by relevance.
+1.
+2.
+3.
+
+---
+
+## Value Map
+
+### Products & services
+What you offer that helps the customer get the job(s) done.
+1.
+2.
+3.
+
+### Pain relievers
+How specifically each product/service alleviates a named pain above. Reference the pain it maps to.
+1. — relieves pain:
+2. — relieves pain:
+3. — relieves pain:
+
+### Gain creators
+How specifically each product/service produces a named gain above. Reference the gain it maps to.
+1. — creates gain:
+2. — creates gain:
+3. — creates gain:
+
+---
+
+## Fit check
+- [ ] Every pain reliever maps to a real, ranked pain — not an invented one
+- [ ] Every gain creator maps to a real, ranked gain
+- [ ] The top 1-3 jobs are addressed by at least one product/service
+- [ ] This has been validated with actual customers, not just reasoned through internally
+
+**Fit statement:** For [customer segment], who need to [top job], [product] helps by [top pain reliever / gain creator], unlike [alternative], because [evidence].
+
+**Open questions / assumptions still to test:**</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-prd">
+    <div class="tpl-head"><span class="t-title">PRD template</span><button class="copy-btn" data-copy="tpl-prd">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-prd"># Product Requirements Document: [Product Name]
+
+**Author:** · **Date:** · **Status:** Draft / In review / Approved
+
+## 1. Product Overview
+Vision: [One sentence]
+Problem Statement: [What problem are we solving?]
+Target Users: [Primary and secondary personas]
+Success Metrics: [Key metrics with targets]
+Strategic Context: [Which strategy pillar(s) this serves]
+
+## 2. User Stories
+
+### Epic 1: [Epic Name]
+
+**US-001: [Title]**
+As a [user type], I want to [action] so that [benefit].
+Acceptance Criteria:
+- [Testable criterion 1]
+- [Testable criterion 2]
+- [Testable criterion 3]
+- [Testable criterion 4 — edge case or error handling]
+Priority: [Must Have / Should Have / Could Have / Won't Have]
+Estimated Effort: [S / M / L / XL]
+Strategic Link: [Which pillar/JTBD this serves]
+
+### Epic 2: [Epic Name]
+[Stories in the same format]
+
+## 3. Functional Requirements
+
+**FR-001: [Requirement Title]**
+[Detailed description of the functionality]
+Acceptance Criteria:
+- [Specific, testable criterion]
+- [Specific, testable criterion]
+Dependencies: [Other requirements this depends on]
+Priority: [Critical / High / Medium / Low]
+User Stories: [US-001, US-003]
+Strategic Objective: [Which pillar this enables]
+
+Cover: Authentication & Authorisation · Core Features · Data Management · Integration · Reporting & Analytics
+
+## 4. Non-Functional Requirements
+
+Performance
+- API response times: [X]ms at p95
+- Page load time: [X]s
+- Concurrent users supported: [X]
+- Database query performance: [X]ms at p95
+
+Security
+- Authentication: [Method]
+- Encryption: at rest [standard], in transit [standard]
+- Compliance: [GDPR / PCI-DSS / SOC 2 / etc.]
+- Audit logging: [What's logged]
+
+Scalability
+- Horizontal scaling: [Approach]
+- Load handling: [X] requests per second
+- Data volume: [X] records
+
+Reliability
+- Uptime: [X]% (measured over [period])
+- RTO: [X] hours
+- RPO: [X] hours
+- Backup frequency: [X]
+
+Usability
+- Accessibility: WCAG [level]
+- Browser support: [List]
+- Mobile: [Responsive / Native / Both]
+- Loading time: [X]s max
+
+Maintainability
+- Test coverage: [X]% minimum
+- Documentation: [Standard]
+- Deployment: [Frequency capability]
+
+## 5. Technical Specifications
+Recommended Tech Stack: [With rationale]
+System Architecture: [Key patterns]
+Core Data Models: [Entities and relationships]
+API Design: [Key endpoints]
+Third-Party Services: [External dependencies]
+
+## 6. Constraints & Assumptions
+Constraints: [Budget, timeline, technical, regulatory]
+Assumptions: [User behaviour, market, technical, resources]
+
+## 7. Success Criteria & Metrics
+Launch Criteria: [Minimum for launch]
+Success Metrics: [With targets and measurement methods]
+
+## 8. Open Questions & Risks
+Open Questions: [Unresolved decisions needing stakeholder input]
+Risks: [Technical, market, resource, dependency — each with mitigation]
+
+## Overall Confidence: [X]%</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-strategy">
+    <div class="tpl-head"><span class="t-title">Strategy workspace</span><button class="copy-btn" data-copy="tpl-strategy">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-strategy"># Strategy Workspace: [Product Area]
+
+**Owner:** · **Started:** · **Status:** Context / Research / Draft / In review / Signed off
+
+---
+
+## Phase 1 — Context brief
+Facts and current state only — no direction or opinions yet.
+
+**Current performance:** (revenue, growth, retention, usage — whichever's the relevant top-line metric)
+**Company-level priorities this strategy must nest inside:**
+**Competitive landscape:**
+**Prior strategy for this area (if any) — still true?**
+**Known constraints:** (budget, team, tech debt, regulatory)
+**Open questions for research:**
+1.
+2.
+3.
+
+Checkpoint: reviewed by ______ on ______
+
+---
+
+## Phase 2 — Research findings
+Organized by the question each finding answers.
+
+**Q1: [open question from context]**
+Finding:
+Source:
+
+**Q2:**
+Finding:
+Source:
+
+Checkpoint: reviewed by ______ on ______
+
+---
+
+## Phase 3 — Strategy draft
+
+**Where to play:** (customers, segments, problems — in scope)
+**Where we won't play:** (explicitly out of scope)
+**How to win:** (the specific, defensible advantage this relies on)
+**Capabilities required:** (what has to be true internally — team, tech, partnerships)
+**Strategic pillars:**
+1.
+2.
+3.
+**Success metrics:** (with targets and timeframe)
+
+Checkpoint: reviewed by ______ on ______
+
+---
+
+## Phase 4 — Review readout
+
+| Check | Pass? | Notes |
+|---|---|---|
+| Falsifiable | | |
+| Evidenced | | |
+| Coherent (pillars follow from "how to win") | | |
+| Resourced (realistic given constraints) | | |
+| Differentiated | | |
+| Excludes something | | |
+
+**Rework needed:**
+**Ready for sign-off:** Yes / No
+
+Final sign-off by ______ on ______</pre></div>
+  </div>
+
+  <div class="tpl-card" id="card-fullstrategy">
+    <div class="tpl-head"><span class="t-title">Full strategy document (13-section)</span><button class="copy-btn" data-copy="tpl-fullstrategy">Copy</button></div>
+    <div class="tpl-body"><pre id="tpl-fullstrategy"># Product Strategy Document: [Product / Bet Name]
+
+**Owner:** · **Date:** · **Horizon:** [e.g. 18 months] · **Status:** Draft / In review / Approved
+
+## At a glance
+- **The bet:** [One sentence — what you're doing and how]
+- **The prize:** [The upside if it works, with a target figure or range]
+- **The risk if we don't act:** [What happens, or who wins, if this doesn't get done]
+- **How we win:** [2-4 numbered mechanisms]
+- **How we measure:** [The one north-star metric, with a target]
+- **What we won't do:** [Explicit exclusions, short list]
+- **Decisions needed:** [Numbered list of approvals/decisions this doc is asking for]
+- **Kill criteria:** [Numbered list — the specific thresholds that would trigger pausing or killing this bet]
+
+---
+
+## 1. Executive summary
+[2-4 short paragraphs: the problem in plain terms, the size of the prize, the core bet, the biggest risk, and what decisions/approvals this doc is asking for.]
+
+## 2. Mission and vision
+**Mission:** [What this exists to do, and what it explicitly excludes]
+**Vision:** [What "done" looks like at the end of the horizon, described concretely]
+**We'll know we're winning when:** [Observable signals, not just metrics]
+
+## 3. Product principles
+**1. [Principle name].** [What it means.] What we won't do: [explicit exclusion].
+**2. [Principle name].** [What it means.] What we won't do: [explicit exclusion].
+
+## 4. Where we are today
+
+### 4a. Landscape
+[What exists today internally. Maturity: pre-concept / early / established.]
+
+### 4b. Key metrics
+| Metric | Our value | Benchmark | Source |
+|---|---|---|---|
+
+### 4c. What's working
+[Existing capabilities/channels/proof points to build on. Cite evidence, not assertion.]
+
+### 4d. What's not working
+[The gap this strategy closes. Name the most important missing data explicitly.]
+
+### 4e. Past efforts
+[What's been tried before, what happened, the pattern to repeat or avoid.]
+
+### 4f. Competencies and constraints
+**Competencies:** [What makes this feasible today]
+**Constraints:** [What's genuinely missing, stated honestly]
+
+## 5. Our customers
+
+### 5a. Current profile
+[Who you serve today, concretely.]
+
+### 5b. Priority segments
+| Segment | Priority | Est. size | Why |
+|---|---|---|---|
+
+### 5c. Archetypes
+[2-4 named archetypes: situation, current behaviour, what they pay/do today, competitor alternative, rough deal economics.]
+
+### 5d. Growth logic
+[Which segment first and why, how it extends, why that sequence.]
+
+### 5e. Who we won't serve
+[Explicit exclusions with the real trade-off, not just "too small."]
+
+### 5f. Acquisition funnel
+| Stage | What we know | Gap | Source |
+|---|---|---|---|
+
+## 6. Customer needs
+
+### 6a. Needs we already meet
+[What's served today, if anything.]
+
+### 6b. Prioritisation criteria
+| Criterion | Weight | Rationale |
+|---|---|---|
+
+### 6c. Prioritised needs
+| Need | Priority | Why now |
+|---|---|---|
+
+### 6d. Needs we won't address
+[Considered and deferred/rejected, with the condition that would change that.]
+
+### 6e. Wallet share / opportunity sizing
+[What's currently spent elsewhere this could capture — see the Market Sizing skill.]
+
+### 6f. Need intersection
+[The combination of needs nobody currently serves together.]
+
+## 7. Strategy — how we'll win
+
+**Core assumption:** [The one assumption the whole strategy rests on, and what happens if it's wrong.]
+
+### 7a. Framework
+| Pillar | What we'll do | Gap we exploit | Evidence |
+|---|---|---|---|
+
+### 7b. Pillar detail
+[Per pillar: what, why now (evidence), target/timeframe, biggest risk, explicit exclusions, the trigger to accelerate or abandon it.]
+
+### 7c. Sequencing
+[What launches first and why, dependencies, the threshold to pause/pivot before continuing.]
+
+### 7d. Differentiation
+**Where we lead:** [existing advantages]
+**Where we'll create advantage:** [net-new differentiation]
+**Where we choose not to differentiate:** [deliberately commodity, and why]
+
+### 7e. Value proposition
+**One sentence:**
+**30-second pitch:**
+**Honest pitch:** [including what you're honestly not better at]
+**Validation plan:** [see Customer Validation skill]
+
+### 7f. Revenue / impact model
+| Variable | Value | Source |
+|---|---|---|
+[Flag every unverified/estimated figure. Show unit economics for one archetype, then the roll-up. State the kill threshold.]
+
+### 7g. What we believe that others don't
+[2-4 numbered beliefs that make this strategy work, that a competitor might not believe. Each: belief, evidence, the skeptic's counter, and what would prove you wrong.]
+
+## 8. What we won't do
+[Each: the exclusion, the reasoning ("to believe this you'd need to believe X — here's why that's wrong"), the condition to revisit.]
+
+## 9. Competitive landscape
+[Who else operates here, real advantages and gaps. 2-3 moves to watch, with the signal that would tell you. The scariest plausible scenario and your response plan, with the earliest trigger signal.]
+
+## 10. Success metrics
+**North star:** [metric, target, timeframe]
+**Anti-incentive check:** [how it could be gamed, and the health metric that guards against it]
+**Rejected alternative metrics:** [considered and rejected, with why]
+
+| Metric | Current | Target | Owner |
+|---|---|---|---|
+
+**Health metrics:** [what must not move the wrong way]
+**Metrics we won't optimise:** [with the perverse incentive each would create]
+
+## 11. Uncertainties and risks
+| Uncertainty | Why it matters | How we'll resolve it | Owner | Deadline | What happens if we don't |
+|---|---|---|---|---|---|
+
+## 12. Roadmap
+| Initiative | Horizon | Owner | Confidence | Depends on | Resource |
+|---|---|---|---|---|---|
+
+### Dependency map
+| This bet | Depends on | Owner | Needed by | If delayed | Impact |
+|---|---|---|---|---|---|
+
+**Most important external dependency:**
+
+**Kill criteria:**
+1.
+2.
+
+## 13. The plan
+| Workstream | Key steps | Owner | Dependencies | Open questions | Confidence |
+|---|---|---|---|---|---|
+
+---
+
+## Evidence appendix
+**External sources:** [claim, source, date, section it supports]
+**Internal sources:** [same, for internal data]
+**Stakeholder/PM input:** [undocumented input, labelled as such — not dressed up as evidence]
+**Unverified claims:** [every estimated figure, flagged so nobody mistakes a guess for data]</pre></div>
+  </div>
+
+  <div class="guide-overlay" id="guide-overlay"></div>
+  <div class="guide-panel" id="guide-panel">
+    <div class="guide-panel-head">
+      <h3 id="guide-panel-title">Method guide</h3>
+      <button class="guide-close" id="guide-close">×</button>
+    </div>
+    <div class="guide-panel-body" id="guide-panel-body"></div>
+  </div>
+
+  <div class="hub-footer">
+    <span class="footer-logo">pm-os</span>
+    <span>discovery → sizing → validation → prototyping → experimentation → discovery</span>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  function openAndScroll(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    if(el.tagName === 'DETAILS'){ el.open = true; }
+    el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  document.querySelectorAll('.loop-node').forEach(function(n){
+    n.addEventListener('click', function(){ openAndScroll(n.getAttribute('data-target')); });
+  });
+  document.querySelectorAll('.jump').forEach(function(n){
+    n.addEventListener('click', function(e){
+      var t = n.getAttribute('data-target');
+      if(t){ e.preventDefault(); openAndScroll(t); }
+    });
+  });
+  // Catch every remaining internal "#id" link (topbar, cta, quicknav) and
+  // scroll via JS instead of relying on native fragment navigation, which
+  // some artifact preview frames misroute to the top-level page.
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    if(a.classList.contains('jump')) return; // already handled above
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      if(!id) return;
+      e.preventDefault();
+      openAndScroll(id);
+    });
+  });
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var src = document.getElementById(btn.getAttribute('data-copy'));
+      if(!src) return;
+      navigator.clipboard.writeText(src.textContent).then(function(){
+        var orig = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = orig; btn.classList.remove('copied'); }, 1600);
+      });
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var libData = [
+  {t:'Assumption Map',c:'Decide',d:'45 min',g:['Discovery','Prioritisation','Understanding the problem'],s:'assumption-map'},
+  {t:'Assumption Reversal',c:'Ideas',d:'45 min',g:['Ideation'],s:'assumption-reversal'},
+  {t:'Business Model Road Test',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'business-model-road-test'},
+  {t:'Card Sorting',c:'Evaluate',d:'2 hrs',g:['Validation Solution'],s:'card-sorting'},
+  {t:'Concierge Test',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'concierge-test'},
+  {t:'Conjoint Analysis',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'conjoint-analysis'},
+  {t:'Context Map Service Blueprint',c:'Understand',d:'2 hrs',g:['Understanding the problem'],s:'context-map-service-blueprint'},
+  {t:'Customer Interview Synthesis',c:'Understand',d:'1-2 hrs',g:['Understanding the problem'],s:'customer-interview-synthesis'},
+  {t:'Democratic Discussion',c:'Discuss',d:'1 hr',g:['Alignment'],s:'democratic-discussion'},
+  {t:'Design Dash',c:'Recipe',d:'2 days',g:['Discovery','Ideation','Prioritisation'],s:'design-dash'},
+  {t:'Empathy Map',c:'Understand',d:'1 hr',g:['Discovery','Team Building','Understanding the problem'],s:'empathy-map'},
+  {t:'Fake Door Test',c:'Evaluate',d:'2 hrs',g:['Validation Solution'],s:'fake-door-test'},
+  {t:'Five Whys',c:'Understand',d:'30 min',g:['Discovery','Just starting','Problem-Solving'],s:'five-whys'},
+  {t:'Get Unstuck',c:'Recipe',d:'3-4 hrs',g:['Ideation','Problem-Solving'],s:'get-unstuck'},
+  {t:'Guerrilla Testing',c:'Evaluate',d:'1 hr',g:['Validation Solution'],s:'guerrilla-testing'},
+  {t:'How Might We',c:'Frame',d:'1 hr',g:['Ideation','Just starting','Problem-Solving'],s:'how-might-we'},
+  {t:'Hypothesis Statement',c:'Frame',d:'30 min',g:['Discovery','Problem-Solving','Ready to decide'],s:'hypothesis-statement'},
+  {t:'Idea Eight',c:'Ideas',d:'30 min',g:['Ideation'],s:'idea-eight'},
+  {t:'Idea Storm',c:'Recipe',d:'3-4 hrs',g:['Ideation','Problem-Solving'],s:'idea-storm'},
+  {t:'Impact Effort Map',c:'Decide',d:'30 min',g:['Prioritisation','Problem-Solving','Ready to decide'],s:'impact-effort-map'},
+  {t:'Journey Map',c:'Understand',d:'1-2 hrs',g:['Discovery','Problem-Solving','Understanding the problem'],s:'journey-map'},
+  {t:'Mad Sad Glad',c:'Discuss',d:'1 hr',g:['Alignment','Retro'],s:'mad-sad-glad'},
+  {t:'Mind Map',c:'Ideas',d:'30 min',g:['Ideation','Problem-Solving'],s:'mind-map'},
+  {t:'Newspaper Headline',c:'Goals',d:'30 min',g:['Kickoff','Ready to decide','Team Building'],s:'newspaper-headline'},
+  {t:'OKRs (Objectives & Key Results)',c:'Goals',d:'1 hr',g:['Alignment','Kickoff','Ready to decide'],s:'okrs-objectives-key-results'},
+  {t:'Onboarding A B Test',c:'Evaluate',d:'Ongoing',g:['Validation Solution'],s:'onboarding-a-b-test'},
+  {t:'Premortem',c:'Evaluate',d:'1 hr',g:['Kickoff','Problem-Solving','Ready to decide'],s:'premortem'},
+  {t:'Priority Map',c:'Decide',d:'30 min',g:['Prioritisation','Ready to decide'],s:'priority-map'},
+  {t:'Problem Statement - Advanced',c:'Frame',d:'1-2 hrs',g:[],s:'problem-statement-advanced'},
+  {t:'Problem Statement - Simple',c:'Frame',d:'1 hr',g:['Alignment','Just starting','Kickoff','Problem-Solving'],s:'problem-statement-simple'},
+  {t:'Problem Tree Analysis',c:'Understand',d:'1 hr',g:['Understanding the problem'],s:'problem-tree-analysis'},
+  {t:'Project Kick-Off',c:'Recipe',d:'4 hrs',g:['Discovery','Kickoff','Problem-Solving'],s:'project-kick-off'},
+  {t:'Proposition Testing',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'proposition-testing'},
+  {t:'Prototype Usability Testing',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'prototype-usability-testing'},
+  {t:'Qualify the Problem',c:'Understand',d:'Ongoing',g:['Understanding the problem'],s:'qualify-the-problem'},
+  {t:'Quantify the Problem',c:'Understand',d:'Ongoing',g:['Understanding the problem'],s:'quantify-the-problem'},
+  {t:'Retrospective',c:'Recipe',d:'2 hrs',g:['Alignment','Retro'],s:'retrospective'},
+  {t:'Rose, Thorn, Bud',c:'Evaluate',d:'30 min',g:['Problem-Solving','Retro'],s:'rose-thorn-bud'},
+  {t:'SWOT Analysis',c:'Evaluate',d:'1-2 hrs',g:['Alignment','Problem-Solving','Understanding the problem'],s:'swot-analysis'},
+  {t:'Sailboat',c:'Goals',d:'1 hr',g:['Alignment','Kickoff','Problem-Solving'],s:'sailboat'},
+  {t:'Secret Vote',c:'Techniques',d:'5 min',g:['Prioritisation'],s:'secret-vote'},
+  {t:'Session Principles',c:'Techniques',d:'5 min',g:['Alignment'],s:'session-principles'},
+  {t:'Start Stop Continue',c:'Discuss',d:'1 hr',g:['Alignment','Retro'],s:'start-stop-continue'},
+  {t:'Story Mapping for Delivery Inception',c:'Decide',d:'3-4 hrs',g:['Ready to decide'],s:'story-mapping-for-delivery-inception'},
+  {t:'Storyboard',c:'Ideas',d:'1-2 hrs',g:['Discovery','Ideation'],s:'storyboard'},
+  {t:'T-Bar Format',c:'Techniques',d:'30 min',g:['Ideation'],s:'t-bar-format'},
+  {t:'Team Time',c:'Recipe',d:'3-4 hrs',g:['Alignment','Kickoff','Team Building'],s:'team-time'},
+  {t:'Theme Sort',c:'Techniques',d:'10 min',g:['Alignment'],s:'theme-sort'},
+  {t:'Who What When',c:'Decide',d:'10 min',g:['Alignment'],s:'who-what-when'},
+  {t:'Willingness-to-Pay Test',c:'Evaluate',d:'2 days',g:['Validation Solution'],s:'willingness-to-pay-test'}
+];
+  var catClass = {Understand:'cat-understand',Frame:'cat-frame',Ideas:'cat-ideas',Evaluate:'cat-evaluate',Decide:'cat-decide',Goals:'cat-goals',Discuss:'cat-discuss',Techniques:'cat-techniques',Recipe:'cat-recipe'};
+  var activeCat = 'All';
+  function renderLib(){
+    var q = document.getElementById('lib-search').value.trim().toLowerCase();
+    var body = document.getElementById('lib-table-body');
+    body.innerHTML = '';
+    var shown = 0;
+    libData.forEach(function(r){
+      if(activeCat !== 'All' && r.c !== activeCat) return;
+      if(q && r.t.toLowerCase().indexOf(q) === -1) return;
+      shown++;
+      var tr = document.createElement('tr');
+      var tagsHtml = r.g.map(function(g){ return '<span class="lib-tag">'+g+'</span>'; }).join('');
+      tr.innerHTML =
+        '<td class="lib-name"><a href="#" data-slug="'+r.s+'" data-title="'+r.t+'" class="guide-open-link">'+r.t+'</a></td>'+
+        '<td><span class="lib-pill '+(catClass[r.c]||'')+'">'+r.c+'</span></td>'+
+        '<td class="lib-dur">'+r.d+'</td>'+
+        '<td>'+tagsHtml+'</td>';
+      body.appendChild(tr);
+    });
+    document.getElementById('lib-count').textContent = shown + ' of ' + libData.length + ' methods';
+  }
+  document.getElementById('lib-search').addEventListener('input', renderLib);
+  var guideContent = {"assumption-map": "# Assumption Map\n\n*Decide \u00b7 45 min \u00b7 Discovery, Prioritisation, Understanding the problem*\n\n## Purpose\n\nPrioritise assumptions based on how risky and uncertain they are. Focuses energy on testing what matters most.\n\n## When to Use\n\n- After Assumption Collecting\n- When planning experiments or MVPs\n- To identify what to validate first\n\n## How to Run\n\n**Duration:** 45 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw a grid with Certainty (known \u2194 unknown) on one axis and Risk (low \u2194 high) on the other.\n2. Take the team's assumptions and place them on the grid.\n3. Discuss:\n    - How bad would it be if we were wrong?\n    - How much do we really know about this?\n4. Identify the riskiest, most uncertain assumptions.\n5. Turn those into Hypothesis Statements for validation.\n\n## Tips\n\n- Revisit regularly as assumptions shift from \"unknown\" to \"known\"\n- Use colour coding to distinguish user vs business vs technical assumptions\n- Focus testing on the top-right quadrant (high risk, high uncertainty)\n\n## See Also\n\n- [Hypothesis Statement]({{hypothesis-statement}})\n- [Premortem]({{premortem}})\n- [Priority Map]({{priority-map}})\n", "assumption-reversal": "# Assumption Reversal\n\n*Ideas \u00b7 45 min \u00b7 Ideation*\n\n# **Purpose**\n\nFlip your thinking by questioning the assumptions that constrain current solutions.\n\n**When to Use**\n\n- When ideas feel repetitive or conservative\n- To uncover breakthrough or contrarian concepts\n\n# **How to Run**\n\n**Duration:** 45 mins\n\n**Materials:** Whiteboard, sticky notes\n\n# **Steps:**\n\n1. List your current assumptions about the problem or user behaviour.\n2. Reverse them - imagine the opposite were true.\n3. Generate ideas that could exist in that world.\n4. Identify any that are surprisingly feasible.\n\n# **Example**\n\nAssumption: \u201cMerchants need to log in to check payouts.\u201d\n\nReversal: \u201cMerchants never log in.\u201d\n\nNew idea: \u201cPayout updates delivered via WhatsApp or Slack.\u201d\n\n# **Tips**\n\n- Encourage wild reversals - they spark creativity.\n- Use with engineers or ops teams to stretch feasibility thinking.\n", "business-model-road-test": "# Business Model Road Test\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n*Adapted from John W. Mullins, The New Business Road Test (FT Prentice Hall, 2003)*\n\n# **Purpose**\n\nAssess whether your **product, market, and team** form an attractive, scalable business model - before committing serious investment.\n\nThis workshop helps identify strengths, weaknesses, and evidence gaps across **market**, **industry**, and **team** domains, so you can design follow-up validation experiments.\n\n# **When to Use**\n\n- When exploring a **new market, product line, or pricing model**\n- Before delivery inception or investment sign-off\n- To re-evaluate a business model post-launch or pivot\n\n# **How to Run**\n\n**Duration:** \u00bd \u2013 1 day\u2003\u2003\n\n**Materials:** Business Model Canvas \u00b7 Seven Domains template \u00b7 existing evidence\n\n1. **Frame the opportunity** - summarise the validated problem, target segment, and early traction.\n2. **Map evidence into each domain**\n    - Market (macro + micro)\n    - Industry (macro + micro)\n    - Team (mission, execution ability, connectedness)\n3. **Score confidence 1-5** for each domain\n    - 1 = assumption only\u20035 = validated with real data\n4. **Highlight red zones** (\u2264 3) and define next validation tests \u2013 pricing, channel, unit economics, ops pilot.\n5. **Summarise Go / Hold / Pivot** decision and update your validation backlog.\n\n### **Domains & Questions**\n\n| Domain | Focus | Key Questions to Answer | Typical Validation Techniques |\n| --- | --- | --- | --- |\n| **Market Macro** | Market size & growth | Is the total addressable market large and growing? | TAM/SAM/SOM analysis, trend & search data |\n| **Market Micro** | Target segment benefits | Do specific customers care enough to switch or pay? | Customer interviews, JTBD, WTP, Conjoint |\n| **Industry Macro** | Structural attractiveness | Is this an industry where participants can profit? | Porter 5 Forces, regulation scan |\n| **Industry Micro** | Sustainable advantage | Can we defend our edge against competitors? | Retention analysis, IP audit, moat map |\n| **Team Mission & Risk** | Goal alignment & risk fit | Is this opportunity consistent with our ambition and risk profile? | Alignment workshop, risk map |\n| **Team Execution Ability** | CSFs & capability | Do we have the skills and resources that matter most? | Capability matrix, skills audit |\n| **Team Connectedness** | Partnership & distribution | Are we plugged into key partners and channels? | Channel pilot, partner interviews |\n\n> *\u201cGood opportunities can be found in not-so-attractive industries - if the micro-level market and industry domains look strong.\u201d - Mullins*\n> \n\n### **Example**\n\n| Domain | Confidence (1-5) | Learning | Next Action |\n| --- | --- | --- | --- |\n| Market Micro | 4 | Strong merchant demand for Instant Payouts | Conjoint pricing test |\n| Industry Macro | 3 | Crowded but fast-growing payments space | Benchmark fees |\n| Team Connectedness | 2 | Limited EU partners | Run 4-week channel pilot |\n\n### **Outputs**\n\n\u2705 Business Model Health Map with confidence scores\n\n\u2705 Targeted validation backlog to close red zones\n\n\u2705 Shared viability rating before build or scale\n\n### **Tips**\n\n- Treat this as a **pre-mortem:** ask *\u201cWhy will or won\u2019t this work?\u201d*\n- Weight **Industry** and **Team** evidence as heavily as **Market**.\n- Look for behavioural proof (money spent, time invested) over opinions.\n- Re-run after each major pivot or market expansion.\n\n### **Further Reading**\n\n- **John W. Mullins**, *The New Business Road Test* (FT Prentice Hall, 2003) - Ch. 1 \u201cWhy Will or Won\u2019t This Work?\u201d\n- https://online.hbs.edu/blog/post/market-validation\n\n### **Notion Template Block**\n\n| Domain | Evidence Summary | Confidence (1-5) | Next Test / Action |\n| --- | --- | --- | --- |\n| Market Macro |  |  |  |\n| Market Micro |  |  |  |\n| Industry Macro |  |  |  |\n| Industry Micro |  |  |  |\n| Team Mission & Risk |  |  |  |\n| Team Execution Ability |  |  |  |\n| Team Connectedness |  |  |  |\n\n*(Use colours or emojis to mark \u2705 validated  \u26a0\ufe0f mixed  \u274c assumption.)*\n", "card-sorting": "# Card Sorting\n\n*Evaluate \u00b7 2 hrs \u00b7 Validation Solution*\n\n# **Purpose**\n\nDiscover how users naturally group and label information - to ensure your navigation, menus, or settings match real mental models.\n\n# **When to Use**\n\n- When designing or restructuring information architecture (IA)\n- Before building navigation or menu systems\n- To validate naming, categorisation, or grouping logic\n\n# **How to Run**\n\n**Duration:** 1\u20132 hours\n\n**Materials:** Physical index cards or digital tool (e.g. OptimalSort, Miro, UXtweak)\n\n# **Steps:**\n\n1. **List items** users will need to categorise (features, pages, products, etc.).\n2. **Choose format:**\n    - **Open sort** \u2192 users create their own categories (good for exploration).\n    - **Closed sort** \u2192 users assign items to predefined categories (good for validation).\n3. Recruit 15\u201330 users (remote or in-person).\n4. Observe how they group and name categories.\n5. Cluster similar patterns to reveal dominant structures.\n6. Use findings to design or refine your site map, menu, or IA labels.\n\n# **Example**\n\n30 users sorted \u201cthe product app\u201d features \u2192 80 % grouped *\u201cTransaction history\u201d*, *\u201cExport CSV\u201d*, *\u201cDisputes\u201d* together under \u201cPayments.\u201d\n\nResult \u2192 IA renamed \u201cPayments & Reports\u201d to match user vocabulary.\n\n**Tips**\n\n- Keep list size under ~50 items to avoid fatigue.\n- Combine with **Tree Testing** afterwards to verify that structure works in navigation.\n- Use visual clustering or dendrograms for analysis.\n\n**Further Reading**\n\n- https://www.nngroup.com/articles/card-sorting-definition/\n- https://www.interaction-design.org/literature/article/the-pros-and-cons-of-card-sorting-in-ux-research?srsltid=AfmBOopY2kxXubJrnTytdM26IwkQX1hQlCkOCAd1WgaRp7-Rg7Bg-D2n\n", "concierge-test": "# Concierge Test\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n# **Purpose**\n\nOffer the experience manually to learn what customers truly value and would pay for.\n\n# **When to Use**\n\n- When automation is costly or uncertain\n- To validate willingness to pay and repeat use\n\n# **How to Run**\n\n**Duration:** 1\u20132 weeks\n\n1. Deliver the outcome manually (spreadsheet, DM, email).\n2. Observe behaviour, record effort, and capture quotes.\n3. Ask what would make them continue if automated.\n\n# **Example**\n\nOps team manually sent daily payout reports to 10 merchants; 8 continued for 2 weeks \u2192 validated product concept.\n\n# **Tips**\n\n- Keep sample small (5\u201315 users).\n- Track retention and effort cost.\n\n# **Further Reading**\n\n- https://kromatic.com/blog/concierge-vs-wizard-of-oz-test/\n- https://help.glidr.io/en/articles/1648461-concierge-test\n", "conjoint-analysis": "# Conjoint Analysis\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n# **Purpose**\n\nQuantitatively discover which feature-price trade-offs users prefer.\n\n# **When to Use**\n\n- When designing tiered pricing or bundles\n- To decide what to include in an MVP\n\n# **How to Run**\n\n**Duration:** 2\u20133 days\n\n1. Pick \u2264 6 attributes (e.g. speed, analytics, price).\n2. Generate 6\u20138 feature bundles.\n3. Ask 100 + users to choose repeatedly.\n4. Analyse relative importance & utility scores.\n\n# **Example**\n\nMerchants value \u201cinstant payout\u201d 2\u00d7 more than \u201ccustom analytics\u201d and will pay +\u00a310/month.\n\n# **Tips**\n\n- Keep choices simple; avoid fatigue.\n- Use tools like Conjoint.ly or Qualtrics.\n\n# **Further Reading**\n\n- https://blog.hubspot.com/marketing/conjoint-analysis\n", "context-map-service-blueprint": "# Context Map Service Blueprint\n\n*Understand \u00b7 2 hrs \u00b7 Understanding the problem*\n\n# Context Map / Service Blueprint\n\n# **Purpose**\n\nVisualise the ecosystem surrounding your problem \u2014 who\u2019s involved, what systems interact, and where friction emerges.\n\n# **When to Use**\n\n- Early in discovery to clarify the environment and stakeholders\n- When problems cross multiple teams or processes\n- To uncover hidden dependencies or ownership gaps\n\n# **How to Run**\n\n**Duration:** 1\u20131.5 hours\n\n**Materials:** Miro or large whiteboard\n\n# **Steps:**\n\n1. Place your **customer or product** at the centre.\n2. Add surrounding systems, tools, or people who interact with it.\n3. Map connections (data, communication, dependencies).\n4. Annotate friction points or breakdowns.\n5. Summarise \u201ctensions\u201d and \u201copportunities\u201d observed.\n\n# **Example**\n\nA \u201cFailed payout\u201d problem involves Customer Support, Banking APIs, and Finance Ops - mapping them revealed a dependency on manual reconciliation.\n\n# **Tips**\n\n- Keep one map per key process.\n- Use arrows to show dependency direction.\n- Capture both blockers and enablers.\n\n# **Further Reading**\n\n- https://www.mindtheproduct.com/a-storytelling-framework-to-effectively-define-a-problem/\n- https://www.nngroup.com/articles/service-blueprints-definition/\n", "customer-interview-synthesis": "# Customer Interview Synthesis\n\n*Understand \u00b7 1-2 hrs \u00b7 Understanding the problem*\n\n# **Purpose**\n\nTurn multiple customer interviews into actionable insights by identifying recurring themes, frustrations, and opportunities that reveal underlying problems.\n\n# **When to Use**\n\n- After conducting a round of customer interviews\n- When qualitative feedback feels scattered or overwhelming\n- Before defining or prioritising which problems to explore further\n\n# **How to Run**\n\n**Duration:** 1\u20132 hours\n\n**Materials:** Interview notes, whiteboard or digital workspace\n\n**Steps:**\n\n1. Collect key quotes, behaviours, and observations from interviews.\n2. Group similar quotes into **themes** (pain points, needs, motivations).\n3. Label each group as **Pain**, **Need**, or **Motivation**.\n4. Spot recurring patterns or tensions across participants.\n5. Summarise each cluster as a clear **insight statement** or **problem hypothesis**.\n\n# **Example**\n\n> \u201cI don\u2019t always know when my payout will land\u201d \u2192 grouped under Lack of visibility.\n> \n> \n> \u201cI have to message support to confirm\u201d \u2192 same theme.\n> \n> **Insight:** Merchants lack real-time visibility into transactions, creating anxiety and unnecessary support tickets.\n> \n\n# **Tips**\n\n- Stay close to actual quotes - don\u2019t sanitise too early.\n- Use colour coding for pains vs. needs.\n- End with 3\u20135 clear insight statements.\n\n# **Further Reading**\n\n- https://www.nngroup.com/articles/which-ux-research-methods/\n- https://www.youtube.com/watch?v=Q_m1-3mCyiI&t=516s\n", "democratic-discussion": "# Democratic Discussion\n\n*Discuss \u00b7 1 hr \u00b7 Alignment*\n\n## Purpose\n\nRun a fair and efficient group discussion by co-creating the agenda and timeboxing topics. Ensures the most important issues are heard.\n\n## When to Use\n\n- When there are too many topics and not enough time\n- In team meetings where everyone needs a voice\n- To prevent loud voices from dominating\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, timer\n\n**Steps:**\n\n1. Draw three columns: **To Discuss, Discussing, Discussed**.\n2. Ask participants to write topics they want to cover and place them in \"To Discuss.\"\n3. Have each person briefly explain their topic.\n4. Hold a Secret Vote to decide which topics are most important.\n5. Arrange topics in order of votes.\n6. Start with the highest-ranked topic. Timebox each to 10 minutes.\n7. At the end of each slot, decide to continue for another 10 minutes or move on.\n8. Capture actions from each topic in Who/What/When.\n\n## Tips\n\n- Works well with large groups to prevent rabbit holes\n- Helps ensure quieter voices shape the agenda\n- Be strict about timeboxing to maintain momentum\n\n## See Also\n\n- [Fishbowl]({{fishbowl}})\n- [Secret Vote]({{secret-vote}})\n- [Who/What/When]({{who-what-when}})\n", "design-dash": "# Design Dash\n\n*Recipe \u00b7 2 days \u00b7 Discovery, Ideation, Prioritisation*\n\n## Purpose\n\nGo from a blank page to a testable prototype in just two days. Compresses discovery, ideation, and prototyping into a focused sprint.\n\n## When to Use\n\n- When speed is critical\n- To quickly validate new ideas with users\n- As an alternative to a full week-long design sprint\n\n## How to Run\n\n**Duration:** 2 days\n\n**Materials needed:** Whiteboard, sticky notes, prototyping tools (paper, Figma, etc.), access to test users\n\n**Day 1:**\n\n1. **Journey Map (1-2 hrs)** - Map the customer journey to find opportunities.\n2. **Idea Storm (2-3 hrs)** - Generate and refine solutions.\n3. **Priority Map (1 hr)** - Rank ideas by criteria (impact vs effort, cost vs value, etc.).\n4. **Storyboard (1-2 hrs)** - Flesh out the winning idea as a sequence of steps.\n\n**Day 2:**\n\n1. **Build prototype (4-5 hrs)** - Low-fidelity is fine. Focus on testing the core hypothesis.\n2. **Test with users (2-3 hrs)** - Run 3-5 user tests and gather feedback.\n\n## Tips\n\n- Timebox ruthlessly - momentum matters more than polish\n- Use the prototype test as input for your next iteration cycle\n- Keep the team small (5-7 people max) for agility\n\n## Outcome\n\nA testable prototype built from user insight, not guesswork.\n\n## See Also\n\nhttps://designsprintkit.withgoogle.com/methodology/overview\n", "empathy-map": "# Empathy Map\n\n*Understand \u00b7 1 hr \u00b7 Discovery, Team Building, Understanding the problem*\n\n## Purpose\n\nBuild empathy by exploring what the user is saying, thinking, doing, and feeling. Includes their jobs, pains, and gains.\n\n## When to Use\n\n- When designing for a specific user segment\n- To build empathy quickly in a workshop\n- Before prototyping personas or testing assumptions\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw a template with sections: **Says, Thinks, Does, Feels**, plus **Jobs, Pains, Gains**.\n2. Define the user's goal in the middle.\n3. Ask participants to capture what they believe about the user in each category.\n4. Share, group, and discuss.\n5. Use an Assumption Map afterwards to decide what needs validation.\n\n## Tips\n\n- Don't just focus on rational jobs - emotional context matters\n- Use real user research if available to validate assumptions\n- This is a hypothesis tool - test your empathy map with actual users\n\n## See Also\n\nhttps://www.nngroup.com/articles/empathy-mapping/\n\nhttps://www.interaction-design.org/literature/article/empathy-map-why-and-how-to-use-it?srsltid=AfmBOorpWZGS6pN1AOOBMClfh5ygIQJEUvWsz1M1-JBan8PqKBlMQWNM\n", "fake-door-test": "# Fake Door Test\n\n*Evaluate \u00b7 2 hrs \u00b7 Validation Solution*\n\n# **Purpose**\n\nMeasure real customer interest in a new feature or product before it exists.\n\n**When to Use**\n\n- Early in solution validation\n- To compare demand between ideas\n\n# **How to Run**\n\n**Duration:** 1\u20133 days\n\n1. Add a \u201ccoming soon\u201d CTA or button in-app, email, or web.\n2. Track clicks, sign-ups, or survey completions.\n3. Share \u201cthanks, we\u2019re exploring this\u201d message afterward.\n4. Compare engagement to baseline features.\n\n# **Example**\n\n\u201cInstant payouts\u201d CTA drew 4\u00d7 more clicks than \u201cNext-day payouts.\u201d\n\n# **Tips**\n\n- Run on real traffic, not internal tests.\n- Follow up with a short feedback form for colour.\n\n# **Further Reading**\n\n- https://www.nngroup.com/articles/wizard-of-oz/\n- https://medium.com/@semrush_official/how-to-improve-your-product-using-the-fake-door-method-5e77c634de12\n", "five-whys": "# Five Whys\n\n*Understand \u00b7 30 min \u00b7 Discovery, Just starting, Problem-Solving*\n\n## Purpose\n\nGet to the root cause of a problem by repeatedly asking \"why?\" instead of stopping at surface-level explanations.\n\n## When to Use\n\n- After an unexpected failure or challenge\n- When symptoms are obvious but the underlying cause isn't\n- To avoid wasting energy fixing superficial issues\n\n## How to Run\n\n**Duration:** 30-60 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Gather the people directly involved in or impacted by the problem.\n2. Choose a facilitator to keep the discussion focused.\n3. Write down the problem clearly.\n4. Ask: \"Why did this happen?\" Write down the answer.\n5. Take that answer and again ask: \"Why did this happen?\"\n6. Repeat this process five times (or until you feel you've reached a root cause).\n7. Capture potential solutions as they emerge.\n8. Summarise agreed actions and assign ownership.\n\n## Example\n\n- Why did the robot stop? \u2192 A fuse blew.\n- Why did the fuse blow? \u2192 Circuit overloaded.\n- Why overloaded? \u2192 Bearings locked due to poor lubrication.\n- Why poor lubrication? \u2192 Oil pump not circulating enough oil.\n- Why pump failing? \u2192 Intake clogged with metal shavings.\n\n**Root cause:** No filter on the pump.\n\n## Tips\n\n- Five is a rule of thumb - sometimes you'll get there in three, sometimes in seven\n- Works best in a blame-free environment\n- Document the chain of reasoning for future reference\n\n## See Also\n\nhttps://www.atlassian.com/blog/teamwork/5-whys-analysis\n\nhttps://www.youtube.com/watch?v=sRr9Zic3_T8\n", "get-unstuck": "# Get Unstuck\n\n*Recipe \u00b7 3-4 hrs \u00b7 Ideation, Problem-Solving*\n\n## Purpose\n\nDiagnose why a project or team feels blocked and generate viable options to move forward.\n\n## When to Use\n\n- When progress has stalled and no one knows why\n- When the team is circling around the same blocker\n- When frustration is high but clarity is low\n\n## How to Run\n\n**Duration:** 3-4 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. **Sailboat (1 hr)** - Map goals, drivers, and blockers. Identify the biggest anchor.\n2. **Five Whys (30-60 min)** - Dig into the root cause of that blocker.\n3. **How Might We\u2026 (1 hr)** - Reframe the blocker as an open problem.\n4. **Reverse Brainstorm (1 hr)** - Generate \"bad ideas\" to make the problem worse, then flip them into real solutions.\n5. **Rose, Thorn, Bud (30 min)** - Stress-test the potential solutions.\n\n## Tips\n\n- Start broad, then narrow to one concrete problem\n- End with commitments using Who/What/When so the team leaves with action\n- Create a safe space for honesty about what's really blocking progress\n\n## Outcome\n\nA deeper understanding of why the team is stuck and clear options to move forward\n", "guerrilla-testing": "# Guerrilla Testing\n\n*Evaluate \u00b7 1 hr \u00b7 Validation Solution*\n\n# **Purpose**\n\nQuickly spot major usability issues with minimal setup.\n\n# **When to Use**\n\n- Early prototype phase\n- To sanity-check flows or language\n\n# **How to Run**\n\n**Duration:** 1\u20132 hrs\n\n1. Approach 5\u201310 participants in a public or office setting.\n2. Ask them to complete one task on the prototype.\n3. Note success, confusion, time to first click.\n\n# **Example**\n\n5 users \u2192 3 missed \u201cNext Step\u201d button \u2192 UI label change validated.\n\n# **Tips**\n\n- Keep sessions < 10 min.\n- Ideal for copy or navigation checks.\n\n# **Further Reading**\n\n- https://maze.co/guides/usability-testing/guerrilla/\n", "how-might-we": "# How Might We\n\n*Frame \u00b7 1 hr \u00b7 Ideation, Just starting, Problem-Solving*\n\n## Purpose\n\nTransform problems into open-ended, solution-oriented questions. Instead of saying \"customers don't use our feature,\" reframe to \"How might we encourage customers to try this feature?\" This shifts the team into solution mode.\n\n## When to Use\n\n- After research or discovery sessions when problems have been surfaced\n- Before idea generation, as a bridge to creativity\n- To ensure problems are framed broadly enough to allow multiple solutions\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Present the group with the problem area (this could be findings from research, stakeholder interviews, or a Journey Map).\n2. Explain how to reframe:\n    - Listen for problems\n    - Recast them as \"How might we\u2026\" questions\n    - Example: Problem \u2192 \"Customers don't contact us when they have an issue.\" \u2192 HMW \u2192 \"How might we make it easier for customers to contact us when they have an issue?\"\n3. Ask participants to write as many HMW questions as they can on sticky notes.\n4. Share, group similar ones, and discuss.\n5. Prioritise using a Priority Map or Secret Vote.\n\n## Tips\n\n- Make sure the phrasing allows for multiple answers (avoid overly narrow wording)\n- Use HMWs directly as prompts for idea-generation tactics like Idea Eight\n- Frame questions optimistically - focus on opportunities, not just fixing problems\n\n## See Also\n\n- https://www.nngroup.com/articles/how-might-we-questions/\n- https://designsprintkit.withgoogle.com/methodology/phase1-understand/hmw-sharing-and-affinity-mapping\n- https://www.interaction-design.org/literature/topics/how-might-we?srsltid=AfmBOoqYPe8LEfB4Eawkdx3IAjTm6kmcPuAIbIZL7j9xW2z5mrBjtoDI\n", "hypothesis-statement": "# Hypothesis Statement\n\n*Frame \u00b7 30 min \u00b7 Discovery, Problem-Solving, Ready to decide*\n\n## Purpose\n\nTurn assumptions into testable experiments. Helps teams avoid political debates by grounding decisions in evidence.\n\n## When to Use\n\n- After mapping assumptions (e.g., with Assumption Map)\n- When planning experiments or MVPs\n- To focus discovery on the riskiest unknowns\n\n## How to Run\n\n**Duration:** 30 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Collect the riskiest assumptions.\n2. Reframe them using this template:\n\n> Because we saw [insight], we believe [assumption is true].\n> \n\n> \n> \n\n> We will know we are right when we see [feedback/metric/KPI].\n> \n1. If the assumption is large, break it into smaller hypotheses using:\n\n> We believe that [doing X] for [these people] will achieve [this outcome].\n> \n\n> \n> \n\n> We will know this is true when we see [feedback/metric].\n> \n1. Hold a secret vote on which hypotheses to test first.\n\n## Tips\n\n- Keep each hypothesis testable within a reasonable timeframe\n- Use qualitative (user feedback) and quantitative (metrics) indicators together\n- Revisit and update as you gather evidence\n\n## See Also\n\nhttps://www.mindtheproduct.com/hypothesis-driven-product-management/\n", "idea-eight": "# Idea Eight\n\n*Ideas \u00b7 30 min \u00b7 Ideation*\n\n## Purpose\n\nForce fast, divergent thinking by asking people to generate eight ideas in eight minutes. Restriction unlocks creativity.\n\n## When to Use\n\n- When you want a big volume of ideas quickly\n- To push past \"first obvious answers\"\n- Before refining and evaluating\n\n## How to Run\n\n**Duration:** 30-35 minutes\n\n**Materials needed:** Paper, markers\n\n**Steps:**\n\n1. Ask participants to fold paper into eight boxes (or create an 8-box digital grid).\n2. Clarify the problem to solve (use a How Might We if available).\n3. Set a timer: one minute per box. Everyone writes or sketches one idea per minute.\n4. After eight minutes, have participants share their grids with the group.\n5. Encourage \"idea stealing\" - remixing others' ideas in later rounds.\n6. Optionally, repeat or have participants develop their favourite 2-3 ideas into a T-Bar Format.\n\n## Tips\n\n- The pace will feel uncomfortable - that's the point\n- Emphasise that wild ideas are welcome; refinement comes later\n- No idea is too small or silly during this exercise\n\n## See Also\n\nhttps://www.nngroup.com/articles/facilitating-design-studio-workshop/\n\nhttps://designsprintkit.withgoogle.com/methodology/phase3-sketch/crazy-8s\n", "idea-storm": "# Idea Storm\n\n*Recipe \u00b7 3-4 hrs \u00b7 Ideation, Problem-Solving*\n\n## Purpose\n\nGenerate a wide range of solutions to a problem, then refine and evaluate them into a shortlist of strong ideas.\n\n## When to Use\n\n- After framing a problem clearly\n- When the team feels stuck with too few ideas\n- To break through creative blocks\n\n## How to Run\n\n**Duration:** 3-4 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers, paper for sketching\n\n**Steps:**\n\n1. **How Might We\u2026 (1 hr)** - Reframe the problem into open-ended questions.\n2. **Mind Map (30 min)** - Warm up creativity by mapping associations around the question.\n3. **Idea Eight (35 min)** - Push for eight ideas in eight minutes per person.\n4. **T-Bar Format (1 hr)** - Develop ideas into a sketch plus description.\n5. **Rose, Thorn, Bud (30 min)** - Evaluate positives, negatives, and opportunities.\n\n## Tips\n\n- Emphasise quantity before quality - go wide before going deep\n- Works well as a bridge into prioritisation (e.g., Impact/Effort Map)\n- Keep energy high with breaks and time pressure\n\n## Outcome\n\nA shortlist of promising, clearly expressed, and stress-tested ideas.\n\n## See Also\n\nhttps://www.interaction-design.org/literature/article/introduction-to-the-essential-ideation-techniques-which-are-the-heart-of-design-thinking?srsltid=AfmBOoo1-s-1jFXieB3Wq-i2LeLbhLzt-cfkkzwaWEzuw7vuCId3NrE_\n", "impact-effort-map": "# Impact Effort Map\n\n*Decide \u00b7 30 min \u00b7 Prioritisation, Problem-Solving, Ready to decide*\n\n# Impact/Effort Map\n\n# Impact/Effort Map\n\n## Purpose\n\nQuickly sort ideas by how much impact they deliver vs how much effort they require. Helps prioritise into \"do now,\" \"do later,\" or \"forget it.\"\n\n## When to Use\n\n- After idea generation when you need to shortlist\n- When there are too many potential directions\n- To focus team energy on high-value work\n\n## How to Run\n\n**Duration:** 30-60 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw a grid with Impact (high to low) on one axis and Effort (high to low) on the other.\n2. Write each idea on a sticky note.\n3. As a group, discuss and plot them on the grid:\n    - High impact, low effort \u2192 \"Do now\"\n    - High impact, high effort \u2192 \"Do later\"\n    - Low impact, low effort \u2192 \"Maybe later / nice-to-have\"\n    - Low impact, high effort \u2192 \"Forget it\"\n4. Create a plan for \"Do now\" items using Sticky Steps.\n\n## Tips\n\n- Encourage honesty about effort levels \u2014 teams tend to underestimate\n- Works well paired with Secret Vote if there are many ideas\n- Revisit regularly as priorities shift\n\n## See Also\n\nhttps://lucid.co/templates/impact-effort-matrix?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_desktop_search_nb_exact-phrase_&km_CPC_CampaignId=2083827036&km_CPC_AdGroupID=157009304357&km_CPC_Keyword=impact%20effort%20matrix%20template&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=685329101982&km_CPC_TargetID=kwd-920295698815&km_CPC_Country=9072504&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gad_campaignid=2083827036&gbraid=0AAAAADLdSjCOz6pcixVzRucLuHOSxo9Ak&gclid=CjwKCAjwu9fHBhAWEiwAzGRC_x2KisaoXb9MisNv54YV_4sj6muEzW35BPKBPuAvI852ZKhWrLJ0IhoCZLYQAvD_BwE\n", "journey-map": "# Journey Map\n\n*Understand \u00b7 1-2 hrs \u00b7 Discovery, Problem-Solving, Understanding the problem*\n\n## Purpose\n\nMap the customer's journey to identify moments of delight and frustration. Helps highlight opportunities for improvement across the full experience.\n\n## When to Use\n\n- Early in discovery\n- When you need a shared view of the end-to-end customer experience\n- To identify specific pain points\n\n## How to Run\n\n**Duration:** 1-2 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. Define the start and end of the journey (e.g., \"visiting pizza website\" to \"eating pizza\").\n2. Ask participants to capture each step in between on sticky notes.\n3. Place the steps along a timeline in order.\n4. For each step, decide as a group whether it's delightful, neutral, or frustrating. Mark accordingly (e.g., green for positive, red for negative).\n5. For the frustrating steps, reframe them into \"How Might We\u2026\" questions.\n6. Prioritise which pain points to address first.\n\n## Tips\n\n- Keep the journey simple - it's about customer perception, not internal processes\n- Use follow-up tactics like Impact/Effort Map to prioritise which improvements to tackle\n- Validate with real customer research, not just assumptions\n\n## See Also\n\nhttps://www.nngroup.com/articles/journey-mapping-101/\n\nhttps://www.youtube.com/watch?v=2W13ext26kQ\n", "mad-sad-glad": "# Mad Sad Glad\n\n*Discuss \u00b7 1 hr \u00b7 Alignment, Retro*\n\n# Mad/Sad/Glad\n\n# Mad/Sad/Glad\n\n## Purpose\n\nGive the team space to reflect emotionally on recent work. Understanding feelings helps address underlying issues and build trust.\n\n## When to Use\n\n- In regular retrospectives\n- After a stressful sprint, project, or event\n- When morale feels low or uneven\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw three columns: **Mad, Sad, Glad**.\n2. Ask participants to write down what made them mad, sad, and glad (one per sticky note).\n3. Share notes aloud and cluster them into themes.\n4. Discuss as a group.\n5. Prioritise top issues with a Secret Vote.\n6. Turn outcomes into concrete actions.\n\n## Tips\n\n- Create a safe environment by stressing there are no \"wrong\" feelings\n- Use this to identify emotional patterns that might otherwise be ignored\n- Balance time between processing feelings and planning actions\n\n## See Also\n\n- [Start/Stop/Continue]({{start-stop-continue}})\n- [Three Little Pigs]({{three-little-pigs}})\n- [Who/What/When]({{who-what-when}})\n", "mind-map": "# Mind Map\n\n*Ideas \u00b7 30 min \u00b7 Ideation, Problem-Solving*\n\n## Purpose\n\nUnleash free association by mapping ideas visually. This warms up creative thinking and generates unexpected connections.\n\n## When to Use\n\n- At the start of ideation to get everyone's brains moving\n- When tackling a broad or fuzzy problem\n- As a creative warm-up before deeper exercises\n\n## How to Run\n\n**Duration:** 30 minutes\n\n**Materials needed:** Whiteboard or paper, markers\n\n**Steps:**\n\n1. Write the topic or challenge in the centre of the page (use a How Might We question if you have one).\n2. Give participants 5 minutes to capture anything related that pops into their minds - each idea on its own branch radiating out.\n3. After the first wave, ask them to expand on branches with related thoughts. Connect with lines.\n4. Encourage drawing, symbols, or colour coding.\n5. Optionally, repeat with a new central branch or theme that emerged.\n\n## Tips\n\n- The goal is **quantity, not quality** - let it flow\n- Use it as direct stimulus for Idea Eight or Round Robin\n- Don't judge ideas during the mapping phase\n\n## See Also\n\nhttps://www.youtube.com/watch?v=VnIGd7R5zIU\n", "newspaper-headline": "# Newspaper Headline\n\n*Goals \u00b7 30 min \u00b7 Kickoff, Ready to decide, Team Building*\n\n## Purpose\n\nEncourage the team to imagine a future in which the project or organisation has been a big success - and summarise it as if it were on the front page of a newspaper. This draws out ambition and reveals what people truly value.\n\n## When to Use\n\n- To create an inspiring shared vision\n- At the start of a new project or initiative\n- When the team needs energizing around a common goal\n\n## How to Run\n\n**Duration:** 30 minutes\n\n**Materials needed:** Blank paper, markers\n\n**Steps:**\n\n1. Ask everyone to sketch a simple newspaper front page on a blank sheet. Include sections for:\n    - **Headline** \u2013 a punchy one-line summary of extraordinary success\n    - **Subheading** \u2013 a supporting detail\n    - **Sketch** \u2013 a simple drawing that captures the story\n    - **Report** \u2013 bullet points describing highlights of the success\n    - **Quotes** \u2013 imaginary statements from customers, stakeholders, or the press\n2. Give the group 10-15 minutes to create their individual \"future headlines.\"\n3. Go around the group and have each person share their page.\n4. Discuss common themes and combine them into one or two overarching visions.\n\n## Tips\n\n- Works best if people are encouraged to think big, not just incremental improvements\n- Can be followed by Sailboat or OKRs to turn the vision into concrete steps\n- Creates a fun, creative atmosphere at the start of workshops\n\n## See Also\n", "okrs-objectives-key-results": "# OKRs (Objectives & Key Results)\n\n*Goals \u00b7 1 hr \u00b7 Alignment, Kickoff, Ready to decide*\n\n## Purpose\n\nGive the team radical focus by setting one clear objective and linking it to measurable results.\n\n## When to Use\n\n- At the start of a quarter or project\n- When you need a tight, shared focus\n- To align team effort around a single ambitious goal\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Before the workshop, ask participants to submit their suggested objectives. Each should be a qualitative, aspirational end-state (e.g., \"Launch the most reliable beta version\").\n2. Share all objectives and cluster similar ones.\n3. Discuss and vote to select one primary objective.\n4. Brainstorm potential metrics that would show progress toward this objective.\n5. Narrow down to three metrics and turn them into measurable Key Results (e.g., \"Get 40 pre-orders per month\").\n6. Ensure the Key Results feel like a stretch \u2014 achievable, but not guaranteed.\n\n## Tips\n\n- Avoid setting multiple objectives: it dilutes focus\n- Revisit OKRs regularly (weekly or bi-weekly) to track progress\n- Key Results should be quantitative, not qualitative\n- Aim for 70% achievement \u2014 if you hit 100%, you aimed too low\n\n## See Also\n\nhttps://www.mindtheproduct.com/category/okrs/\n", "onboarding-a-b-test": "# Onboarding A B Test\n\n*Evaluate \u00b7 Ongoing \u00b7 Validation Solution*\n\n# Onboarding A/B Test\n\n# **Purpose**\n\nIdentify which onboarding flow, message, or sequence drives higher activation and early engagement.\n\n# **When to Use**\n\n- When activation or time-to-first-value is low\n- To test education, step reduction, or motivation variants\n\n# **How to Run**\n\n**Duration:** 3\u201314 days\n\n**Materials:** Experiment platform (Amplitude, Optimizely, LaunchDarkly, etc.)\n\n# **Steps**\n\n1. Define **success metric** (e.g., activation rate, setup completion, time-to-first-transaction).\n2. Create at least two onboarding flows (A/B or multivariate).\n    - Variant A \u2192 current experience\n    - Variant B \u2192 new steps, different copy, nudges, or tooltips\n3. Run until statistically significant (> 95 % confidence or stable over n \u2265 200).\n4. Analyse uplift in target metric and secondary retention metrics.\n\n# **Example**\n\nShortened onboarding (4 steps \u2192 2) increased first-payment rate by +12 %.\n\n**Tips**\n\n- Keep one major variable per test (steps vs copy vs UI).\n- Run follow-ups to isolate education vs friction effects.\n\n# **Further Reading**\n\n- https://www.nngroup.com/articles/ab-testing/\n", "premortem": "# Premortem\n\n*Evaluate \u00b7 1 hr \u00b7 Kickoff, Problem-Solving, Ready to decide*\n\n## Purpose\n\nAnticipate failure before it happens. Instead of waiting for things to go wrong, you imagine that the project has already failed spectacularly and ask \"why?\"\n\n## When to Use\n\n- At the start of a project, after initial planning\n- When you want to identify risks and mitigation strategies early\n- Before committing significant resources\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Present the current plan or roadmap.\n2. Ask the group to imagine it is the future and the project has failed completely.\n3. Each participant writes down reasons for failure (one per sticky note).\n4. Share notes and briefly explain each one.\n5. Cluster similar causes into themes.\n6. Place themes onto an Assumption Map (e.g., certain vs uncertain, high vs low risk).\n7. Develop actions to mitigate or investigate the riskiest reasons.\n8. Capture ownership with Who/What/When.\n\n## Tips\n\n- Encourage people to be brutally honest\n- Frame as a learning exercise, not pessimism\n- This surfaces concerns people might be afraid to voice otherwise\n\n## See Also\n\nhttps://hbr.org/2007/09/performing-a-project-premortem\n", "priority-map": "# Priority Map\n\n*Decide \u00b7 30 min \u00b7 Prioritisation, Ready to decide*\n\n## Purpose\n\nHelp the group make trade-offs by ranking items against two important criteria. Creates structured debate and alignment on what matters most.\n\n## When to Use\n\n- When you have too many options and need focus\n- To make decisions on ideas, problems, or features\n- To create shared understanding of priorities\n\n## How to Run\n\n**Duration:** 30-60 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw a two-axis grid on a large surface. Label the axes with two criteria (examples: Impact vs Effort, Risk vs Knowledge, Urgency vs Importance).\n2. Write each idea or item on a sticky note.\n3. One by one, place the sticky notes on the grid. Ask, \"Is this more or less than that one?\" to find the right position.\n4. Discuss trade-offs openly \u2014 the conversation is as valuable as the placement.\n5. Review the distribution and agree which quadrant(s) you'll focus on.\n\n## Tips\n\n- Don't over-index on precision \u2014 the goal is relative comparison\n- Document the rationale behind placements, not just the output\n- Can use any two criteria that matter for your context\n\n## See Also\n", "problem-statement-advanced": "# Problem Statement - Advanced\n\n*Frame \u00b7 1-2 hrs*\n\n# \ud83e\udded Problem Statement - Advanced\n\n## \ud83c\udfaf Purpose\n\nMove beyond surface-level problem framing to create **a structured, evidence-based understanding** of what problem we\u2019re solving, why it matters, and what success looks like.\n\nThis framework ensures that **every initiative starts with a validated problem hypothesis** before teams invest time in solutioning or delivery.\n\nAt many companies, we\u2019re not short on ideas - our challenge is connecting them to **real customer needs and measurable business outcomes**.\n\nThe advanced problem statement helps teams do exactly that.\n\n## \ud83e\udde9 When to Use\n\nUse this framework when you need to:\n\n- Frame or reframe an initiative before solution design or delivery.\n- Align multiple stakeholders on **what the actual problem is**.\n- Prioritise among competing opportunities.\n- Reassess or pivot a current initiative after new insights emerge.\n\nIt\u2019s most valuable during these **discovery funnel stages**:\n\n> Opportunities \u2192 Context & Problem Definition \u2192 Problem Validation \u2192 Ideation & Solutionising.\n> \n\n## \u2699\ufe0f How to Run\n\n**Duration:** 60\u201390 minutes\n\n**Materials:** Whiteboard, Miro/Notion template, customer insights, supporting data\n\n### Step 1: Define the Observation\n\nStart with the **observable customer behaviour or outcome** that indicates a problem.\n\n> \u201cRestaurant managers struggle to update their online menus efficiently, leading to delays.\u201d\n> \n\nAsk:\n\n- Who experiences this?\n- What do we observe happening (or not happening)?\n- What evidence do we already have?\n\n### Step 2: Generate Hypotheses for Why\n\nExplore a range of **possible causes**. These should be *explanations*, not solutions.\n\nFor each hypothesis:\n\n- List **supporting or contradicting evidence** (quant, qual, or anecdotal).\n- Rate your **confidence level** (low / medium / high).\n- Note **gaps** that require discovery work.\n\nExample:\n\n| Hypothesis | Evidence | Confidence | Gaps |\n| --- | --- | --- | --- |\n| Current tools are unintuitive | 70% of managers failed usability tasks | High | Need task completion data |\n| Managers prefer delegating | Engineers report frequent requests | Medium | No direct interview evidence |\n\n### Step 3: Identify the Core Problem\n\nCluster related hypotheses into themes and align as a group on **the primary problem to solve**.\n\nUse this statement structure:\n\n> \u201c[Customer] needs to [achieve goal] but struggles because [validated problem].\n> \n> \n> This prevents [desired outcome].\u201d\n> \n\nExample:\n\n> \u201cRestaurant managers need to update menus quickly but struggle because existing tools are unintuitive and require engineering support, slowing their operations and impacting customer satisfaction.\u201d\n> \n\n### Step 4: Articulate the Problem Hypothesis\n\nDocument your **problem hypothesis** in full:\n\n1. **Observation:** The visible pain or unmet need.\n2. **Underlying causes:** What\u2019s driving it (your tested hypotheses).\n3. **Evidence and confidence:** Data points supporting or refuting it.\n4. **Discovery plan:** What you\u2019ll test next to strengthen confidence.\n\n### Step 5: Draft the Solution Hypothesis (optional at this stage)\n\nOnly after the problem hypothesis feels validated, outline **how you might solve it**, ensuring traceability to the original problem.\n\nStructure:\n\n1. **Validated problem:** Reference the statement above.\n2. **Proposed solution:** One-line summary.\n3. **Assumptions:** Behavioural, usability, and impact beliefs that must be tested.\n4. **Evidence:** Early signals or discovery data.\n5. **Metrics:** Clear success measures tied to company or customer outcomes.\n\n## \ud83e\udde0 What \u201cGood\u201d Looks Like\n\n| Weak Problem Statement | Strong Problem Hypothesis |\n| --- | --- |\n| \u201cWe need a new reporting dashboard.\u201d | \u201cMerchants can\u2019t understand their daily performance because existing insights are fragmented across tools, causing missed sales opportunities.\u201d |\n| Focuses on a **solution** | Focuses on the **customer\u2019s struggle** |\n| Based on assumptions | Based on evidence & testable hypotheses |\n| No clear outcome | Explicit measure of success |\n\n## \u2705 Output\n\nBy the end of this session, you should have:\n\n1. A **validated problem hypothesis** with supporting evidence and confidence levels.\n2. A **clear discovery plan** for remaining unknowns.\n3. A **succinct statement** that anchors downstream ideation, validation, and delivery.\n\nUse this output to populate the \u201cContext & Problem Definition\u201d and \u201cProblem Validation\u201d stages in your discovery tracker.\n\n## \ud83e\udde9 Example Output Summary\n\n| Element | Example |\n| --- | --- |\n| **Observation** | Restaurant managers struggle to update menus quickly. |\n| **Why (Hypotheses)** | Tools are unintuitive; dependency on engineers; low perceived urgency. |\n| **Evidence Summary** | 70% failed usability tasks; 80% report urgency; validated through interviews. |\n| **Confidence Level** | High on usability, low on delegation. |\n| **Discovery Plan** | Usability testing & survey on prioritisation. |\n| **Validated Problem Statement** | Managers can\u2019t update menus due to complex tools, causing delays and lost revenue. |\n| **Solution Hypothesis (optional)** | Introduce a no-code menu editor to reduce update time from 3 days to 24 hours. |\n| **Success Metric** | -50% engineer tickets, +15% revenue opportunity conversion. |\n\n## \ud83d\udd17 References & Further Reading\n\n- [Design Council \u2013 The Double Diamond](https://www.designcouncil.org.uk/our-resources/the-double-diamond/)\n", "problem-statement-simple": "# Problem Statement - Simple\n\n*Frame \u00b7 1 hr \u00b7 Alignment, Just starting, Kickoff, Problem-Solving*\n\n## Purpose\n\nBring clarity and focus by capturing the project's goals, the unmet needs, and the constraints in a single problem statement. It ensures alignment and prevents people from jumping straight to solutions.\n\n## When to Use\n\n- At the start of a project, after initial exploration\n- When there's disagreement on what the \"real problem\" is\n- As preparation for discovery and ideation workshops\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Gather relevant stakeholders.\n2. Ask the group to answer these prompts on sticky notes:\n    - What are the current goals of the product or service?\n    - What problem do stakeholders want addressed?\n    - Which goals aren't being met?\n    - What's the request for improvement (without naming a solution)?\n3. Group the notes into themes.\n4. Draft a shared problem statement using this template:\n\n> \"[Our product/service] was designed to achieve [these goals].\n> \n\n> We have observed that it isn't meeting [these goals], which is causing [this negative effect].\n> \n\n> How might we improve [product/service] so that our customers are more successful based on [these measurable criteria]?\"\n> \n1. Refine as a group until there's consensus.\n\n## Tips\n\n- Keep it short - one paragraph max\n- Use this to anchor subsequent discovery and ideation work\n- Revisit and refine as you learn more\n\n## See Also\n\n- https://www.productplan.com/learn/guide-to-writing-an-effective-problem-statement/\n- https://www.youtube.com/watch?v=bDUrQlmwox4\n", "problem-tree-analysis": "# Problem Tree Analysis\n\n*Understand \u00b7 1 hr \u00b7 Understanding the problem*\n\n# **Purpose**\n\nGet beyond symptoms by mapping the **causes** and **effects** of a problem to identify what truly drives it.\n\n# **When to Use**\n\n- When a problem feels complex or multi-layered\n- To differentiate symptoms from root causes\n- Before deciding which part of the system to address first\n\n# **How to Run**\n\n**Duration:** 1 hour\n\n**Materials:** Whiteboard or Miro\n\n**Steps:**\n\n1. Write your **core problem** in the centre.\n2. Draw **branches upward** for effects or visible symptoms.\n3. Draw **roots downward** for possible causes.\n4. For each root, ask \u201cwhy\u201d repeatedly to dig deeper.\n5. Identify causes you can directly influence vs. external dependencies.\n\n# **Example**\n\nProblem: \u201cOnboarding takes too long.\u201d\n\n- **Effects:** Delayed activation, support frustration.\n- **Causes:** Manual ID checks, unclear email comms, missing automation.\n    \n    **Root cause:** Dependency on manual ops verification.\n    \n\n# **Tips**\n\n- Don\u2019t stop too early - keep asking \u201cwhy.\u201d\n- Colour-code effects (red) and causes (blue).\n- Revisit once discovery adds new data.\n\n# **Further Reading**\n\n- https://www.mindtheproduct.com/ditch-solution-first-mindset-start-defining-problem/\n", "project-kick-off": "# Project Kick-Off\n\n*Recipe \u00b7 4 hrs \u00b7 Discovery, Kickoff, Problem-Solving*\n\n## Purpose\n\nAlign the team, clarify the problem, and surface assumptions and risks before starting a project.\n\n## When to Use\n\n- At the very beginning of a new project\n- When multiple stakeholders need to be aligned fast\n- Before committing resources to a major initiative\n\n## How to Run\n\n**Duration:** 4 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. **Premortem (1 hr)** \u2013 Pretend the project failed. Write down reasons why.\n2. **Problem Statement (1 hr)** \u2013 Agree on the problem and how you'll know success.\n3. **Assumption Collecting (45 min)** \u2013 Surface what the team believes about the user, product, and business.\n4. **Assumption Map (45 min)** \u2013 Plot assumptions by risk and certainty to find the riskiest unknowns.\n5. **Hypothesis Statement (30 min)** \u2013 Frame key assumptions as experiments to test.\n\n## Tips\n\n- Make sure all key stakeholders are present \u2014 otherwise hidden risks stay hidden\n- Revisit the Hypotheses after your first research sprint\n- Document everything and share immediately after the session\n\n## Outcome\n\nA clear project focus, aligned team, and a roadmap for testing assumptions.\n\n## See Also\n\n- [Premortem]({{premortem}})\n- [Problem Statement]({{problem-statement}})\n- [Assumption Map]({{assumption-map}})\n", "proposition-testing": "# Proposition Testing\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n# **Purpose**\n\nIdentify which value proposition resonates most with your target audience.\n\n# **When to Use**\n\n- Before launch or campaign creative\n- To test positioning variants\n\n# **How to Run**\n\n**Duration:** 1 day\n\n1. Write 3\u20135 headline + subtext propositions.\n2. Test via ads (A/B) or survey preference.\n3. Track CTR / recall / qual feedback.\n\n# **Example**\n\n\u201cGet Paid Instantly\u201d \u2192 3\u00d7 CTR vs \u201cFaster Payouts.\u201d\n\n# **Tips**\n\n- Keep visuals identical; only vary messaging.\n- Combine with Fake Door for behavioural data.\n\n# **Further Reading**\n\n- https://www.strategyzer.com/library/how-to-acquire-customers-using-online-ads-that-connects-to-your-value-proposition-canvas\n", "prototype-usability-testing": "# Prototype Usability Testing\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n# **Purpose**\n\nValidate whether users can complete key tasks using a prototype.\n\n# **When to Use**\n\n- Before build hand-off\n- To refine IA and flows\n\n# **How to Run**\n\n**Duration:** 1 day\n\n1. Define 3\u20135 core tasks.\n2. Recruit 5\u20138 target users.\n3. Observe interactions, capture success and errors.\n4. Synthesise themes and priority fixes.\n\n# **Example**\n\n6 merchants: 83 % completed flow successfully; terminology change resolved confusion.\n\n**Tips**\n\n- Record sessions for evidence.\n\n# **Further Reading**\n\n- https://uxdesign.cc/the-rainbow-sheet-a-visual-method-for-research-analysis-a7e7d2011058\n", "qualify-the-problem": "# Qualify the Problem\n\n*Understand \u00b7 Ongoing \u00b7 Understanding the problem*\n\n# **Purpose**\n\nValidate *why* a problem exists, what pain it creates, and how customers describe it - through direct human evidence rather than data points.\n\n# **When to Use**\n\n- After quantifying *what\u2019s happening* but before ideation\n- When you need rich stories that explain user behaviour\n- To triangulate numbers with context and emotion\n\n# **How to Run**\n\n**Duration:** 1\u20132 hours per synthesis session\n\n**Materials:** Interview notes, call recordings, survey responses, observation data\n\n# **Steps:**\n\n1. Gather qualitative signals: interviews, usability tests, sales/support transcripts.\n2. Identify language users use to describe the pain - note emotions and expectations.\n3. Cluster similar quotes into themes (frustrations, needs, blockers).\n4. Rank by **intensity of pain** and **repetition across users**.\n5. Combine with quantitative metrics to form a holistic problem narrative.\n\n# **Example**\n\n> \u201cI refresh the payout dashboard every hour\u201d \u2192 shows anxiety and lack of trust in system feedback.\n> \n\nPaired with data showing high session refresh rates, this validates both the *behaviour* and *emotion* behind the problem.\n\n# **Tips**\n\n- Listen for *workarounds* - they\u2019re strong indicators of unmet needs.\n- Use a mix of observed behaviour and self-reported pain.\n- Summarise top 3 validated insights and what evidence supports each.\n\n# **Further Reading**\n\nhttps://www.mindtheproduct.com/quantifying-qualitative-research-by-leisa-reichelt/\n\nhttps://foldingburritos.com/blog/customer-feedback-conversations/bruce-mccarthy-interview/\n", "quantify-the-problem": "# Quantify the Problem\n\n*Understand \u00b7 Ongoing \u00b7 Understanding the problem*\n\n# **Purpose**\n\nMeasure how big or costly a problem actually is - in frequency, impact, or business value - so you can prioritise effectively and make data-driven decisions.\n\n# **When to Use**\n\n- After defining a clear problem statement\n- When stakeholders ask, \u201cHow big is this problem, really?\u201d\n- Before deciding whether to invest in solving it\n\n# **How to Run**\n\n**Duration:** 1\u20132 hours (analysis), variable for data gathering\n\n**Materials:** Product analytics, support data, survey tools\n\n# **Steps:**\n\n- **Define measurable signals.**\n    \n    Translate your problem into metrics that reflect its magnitude.\n    \n    > e.g. \u201cMerchants can\u2019t trust payout times\u201d \u2192 % of support tickets mentioning payouts or average refreshes per user per day.\n    > \n- **Choose appropriate quantitative methods** (based on NN/g):\n    - **Web or App Analytics:** Detect frequency and behavioural trends in live environments.\n    - **Quantitative Usability Testing (Benchmarking):** Measure task success rates or time-on-task across versions.\n    - **A/B or Multivariate Testing:** Compare different UI designs or messaging variants.\n    - **Surveys or Questionnaires:** Quantify user sentiment (e.g. SUS, NPS, satisfaction scores).\n    - **Card Sorting / Tree Testing:** Validate IA clarity and navigation success rates.\n    - **Desirability or Eyetracking Studies:** Quantify aesthetic appeal and visual attention.\n- **Collect enough data for significance.**\n    \n    Target \u2265 30\u201335 participants for usability benchmarking or >100 responses for surveys to ensure reliable signals.\n    \n- **Synthesise the numbers.**\n    \n    Combine *frequency* (how often it happens) \u00d7 *impact* (how much it matters) to prioritise problems.\n    \n- **Visualise the evidence.**\n    \n    Create quick bar or scatter plots to show which problems dominate by volume or cost.\n    \n\n# **Example**\n\nQuantitative usability study shows only **42 %** of merchants complete onboarding without support, and analytics confirm\n\n**18 %** drop off at the verification step \u2192 high-impact, measurable bottleneck.\n\n# **Tips**\n\n- Use proxy metrics when direct ones aren\u2019t available.\n- Combine *occurrence rate* (frequency) with *business loss* (impact).\n- Re-check data post-solution to confirm improvement.\n\n# **Further Reading**\n\n- https://www.nngroup.com/articles/quantitative-user-research-methods/\n- https://www.mindtheproduct.com/essential-kpis-for-data-driven-product-managers/\n", "retrospective": "# Retrospective\n\n*Recipe \u00b7 2 hrs \u00b7 Alignment, Retro*\n\n## Purpose\n\nReflect on recent work to celebrate successes, identify issues, and agree on improvements for next time.\n\n## When to Use\n\n- Regularly (e.g., every 2 weeks in agile teams)\n- At the end of a project or release\n- When the team needs to learn from recent experiences\n\n## How to Run\n\n**Duration:** 2 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. **Choose a format (1 hr):**\n    - **Mad / Sad / Glad** \u2013 focus on emotions\n    - **Three Little Pigs** \u2013 focus on robustness and risk\n    - **Start / Stop / Continue** \u2013 focus on actions\n2. **Run the activity:**\n    - Have everyone contribute sticky notes under each category\n    - Share and cluster similar themes\n    - Discuss patterns and insights\n3. **Democratic Discussion (30 min)** \u2013 Prioritise the most important themes.\n4. **Who, What, When (30 min)** \u2013 Turn outcomes into concrete next steps.\n\n## Tips\n\n- Keep retros safe and constructive \u2014 avoid blame\n- Always close with 2-3 clear actions, not just reflections\n- Rotate the format to keep retros fresh\n- Celebrate wins before diving into problems\n\n## Outcome\n\nThe team learns, adapts, and grows with each cycle.\n\n## See Also\n\n- [Start/Stop/Continue]({{start-stop-continue}})\n- [Mad/Sad/Glad]({{mad-sad-glad}})\n- [Who/What/When]({{who-what-when}})\n", "rose-thorn-bud": "# Rose, Thorn, Bud\n\n*Evaluate \u00b7 30 min \u00b7 Problem-Solving, Retro*\n\n## Purpose\n\nEvaluate an idea, project, or process by identifying positives (roses), negatives (thorns), and opportunities (buds).\n\n## When to Use\n\n- To quickly test ideas as a group\n- Mid-project to reflect on what's working and what's not\n- In retrospectives for balanced feedback\n\n## How to Run\n\n**Duration:** 30 minutes\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes (red, yellow, green)\n\n**Steps:**\n\n1. Select the topic to evaluate (e.g., a design, project, idea, or even a process).\n2. Explain the colour coding:\n    - **Red** = Roses (positives)\n    - **Yellow** = Thorns (negatives)\n    - **Green** = Buds (opportunities)\n3. Ask everyone to write notes under each category.\n4. Cluster and review the themes together.\n5. Discuss actions to address thorns and cultivate buds.\n\n## Tips\n\n- This method works well in both retros and ideation sessions\n- Keep the pace brisk \u2014 it's designed as a quick group pulse\n- Balance focus between celebrating roses and addressing thorns\n\n## See Also\n\n- [SWOT Analysis]({{swot}})\n- [Start/Stop/Continue]({{start-stop-continue}})\n- [Mad/Sad/Glad]({{mad-sad-glad}})\n", "sailboat": "# Sailboat\n\n*Goals \u00b7 1 hr \u00b7 Alignment, Kickoff, Problem-Solving*\n\n## Purpose\n\nUse this to clarify what your team is trying to achieve, what is driving you forward, and what is holding you back. The visual metaphor makes it easy to surface and prioritise goals, motivators, and blockers.\n\n## When to Use\n\n- At the beginning of a project or initiative\n- When the team feels unclear about what success looks like\n- When you need alignment on what's stopping progress\n- In retrospectives to identify blockers\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. On a whiteboard, draw a boat out at sea. Explain that this represents your team or project.\n2. **Draw an island** ahead of the boat. This represents your shared goal. Ask everyone to write down what they think the team's goals are (one per sticky note).\n3. One by one, have participants share their goals and place them near the island. Group similar ones together.\n4. **Draw a sail** on the boat. Explain this represents what is driving you forward. Ask the group to write drivers on sticky notes (e.g., motivation, resources, market demand). Place them near the sail.\n5. **Draw an anchor** below the boat. Explain this represents the barriers or blockers. Ask the group to write down what is slowing progress and stick them near the anchor.\n6. Discuss the notes briefly as they go up, grouping them into themes.\n7. When the map feels complete, hold a secret vote: first on the most important goals, then on the most critical blockers.\n8. Capture the top-ranked items and agree how they will guide your next steps.\n\n## Tips\n\n- The metaphor helps participants express thoughts more openly than a blank list\n- Use this as a warm-up for tactics like Sticky Steps or Problem Statement\n- Take a photo of the final sailboat for future reference\n\n## See Also\n", "secret-vote": "# Secret Vote\n\n*Techniques \u00b7 5 min \u00b7 Prioritisation*\n\n## Purpose\n\nMake quick, democratic decisions while avoiding bias or dominant voices.\n\n## When to Use\n\n- When the group needs to pick from multiple options\n- To prevent \"bandwagon\" effects in discussions\n- For fair, unbiased decision-making\n\n## How to Run\n\n**Duration:** 5 minutes\n\n**Materials needed:** Paper, pens (or digital polling tool)\n\n**Steps:**\n\n1. Number the items up for decision (1, 2, 3, \u2026).\n2. Explain each item briefly.\n3. Give each participant three votes they can distribute however they like (all on one item, or spread out).\n4. Ask them to write their votes privately.\n5. Collect and tally results. Display the outcome clearly.\n\n## Tips\n\n- Works best when paired with T-Bar Format or storyboards so people understand what they're voting on\n- Keep it secret until reveal \u2014 that's what prevents bias\n- Can use dot voting as a visible alternative, but lose the anti-bias benefit\n\n## See Also\n\n- [Priority Map]({{priority-map}})\n- [Democratic Discussion]({{democratic-discussion}})\n- [Impact/Effort Map]({{impact-effort-map}})\n", "session-principles": "# Session Principles\n\n*Techniques \u00b7 5 min \u00b7 Alignment*\n\n## Purpose\n\nAgree as a group on principles for how the session will run. Helps prevent poor habits like side conversations or disengagement.\n\n## When to Use\n\n- At the beginning of a workshop\n- With groups that haven't worked together much\n- When you want to set clear behavioural expectations\n\n## How to Run\n\n**Duration:** 5-10 minutes\n\n**Materials needed:** Whiteboard or digital workspace\n\n**Steps:**\n\n1. Write \"Principles\" at the top of your workspace.\n2. Ask participants to suggest behaviours that will make the session effective (e.g., \"No phones,\" \"Listen more than you talk\").\n3. Capture and briefly clarify each one.\n4. Remind the group they can pause to update or add principles if needed.\n5. At the end, review: Are these still serving us? Do we want to adapt them?\n\n## Tips\n\n- Encourage the group to self-manage \u2014 don't let the facilitator be the only enforcer\n- Keep principles short and memorable\n- Common examples: one conversation at a time, phones away, build on ideas\n\n## See Also\n\n- [Meeting Wizard]({{meeting-wizard}})\n- [Parking Lot]({{parking-lot}})\n", "start-stop-continue": "# Start Stop Continue\n\n*Discuss \u00b7 1 hr \u00b7 Alignment, Retro*\n\n# Start/Stop/Continue\n\n# Start/Stop/Continue\n\n## Purpose\n\nEncourage the team to reflect on behaviours or practices that are helpful, harmful, or worth keeping. A simple, balanced format that always leads to clear actions.\n\n## When to Use\n\n- Midway through or at the end of a project\n- In retrospectives or feedback sessions\n- When a team feels stuck in unproductive habits\n\n## How to Run\n\n**Duration:** 1 hour\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Draw three columns on a board: **Start, Stop, Continue**.\n2. Ask each person to write sticky notes for each column:\n    - What should we start doing?\n    - What should we stop doing?\n    - What should we continue doing?\n3. Share and stick notes up, grouping similar ones.\n4. Discuss key themes as a group.\n5. Prioritise with a Secret Vote if needed.\n6. Capture commitments using Who/What/When.\n\n## Tips\n\n- Keep the focus on actions, not complaints\n- Works equally well for team processes or personal feedback\n- Balance criticism (Stop) with positivity (Continue)\n\n## See Also\n\n- [Mad/Sad/Glad]({{mad-sad-glad}})\n- [Rose, Thorn, Bud]({{rose-thorn-bud}})\n- [Who/What/When]({{who-what-when}})\n", "story-mapping-for-delivery-inception": "# Story Mapping for Delivery Inception\n\n*Decide \u00b7 3-4 hrs \u00b7 Ready to decide*\n\n# \ud83c\udfaf **Purpose**\n\nTransform validated solutions into a **shared delivery blueprint**.\n\nStory mapping connects **customer journeys**, **business goals**, and **team workstreams** - so everyone agrees on **what we\u2019re building, why, and what \u201cdone\u201d looks like.**\n\n> *\u201cStory mapping turns a long list of requirements into a narrative everyone understands.\u201d - Jeff Patton*\n> \n\n### \ud83e\udde9 **When to Use**\n\n- After **Solution Validation** (we know it\u2019s worth building).\n- Before delivery planning or epic creation.\n- When teams need **alignment** on MVP scope, sequencing, or dependencies.\n\n### \u2699\ufe0f **How to Run**\n\n**Duration:** 3\u20134 hours (cross-functional session)\n\n**Facilitator:** Product Manager / Designer\n\n**Participants:** PM, Eng, Design, Data, Commercial, Ops\n\n### **1\ufe0f\u20e3 Define the goal & user**\n\nStart with clarity:\n\n- What\u2019s the **user problem** we\u2019re solving?\n- What\u2019s the **business goal / success metric** (e.g., ARR uplift, conversion rate, retention)?\n- Which **persona or archetype** does this apply to?\n\n\u2705 *Output:* 1-line user goal + 1-line success metric.\n\n### **2\ufe0f\u20e3 Map the high-level user journey**\n\nLay out the **end-to-end steps** the user takes to reach the goal.\n\nUse real customer language, not internal terms.\n\n**Example: \u201cApply for Funding\u201d journey**\n\n1. Discover funding\n2. Start application\n3. Submit details\n4. Approval & payout\n5. Repayment tracking\n\n\u2705 *Output:* The \u201cbackbone\u201d of the story map - the horizontal axis.\n\n### **3\ufe0f\u20e3 Break down actions under each step**\n\nFor each step, brainstorm what users do (and what systems or teams enable it).\n\nAdd **sticky notes vertically** under each stage.\n\n**Example:**\n\n- Start application \u2192 Enter business details \u2192 Connect bank \u2192 Verify ID\n- Submit details \u2192 Review summary \u2192 Confirm application\n\n\u2705 *Output:* Full vertical story map of actions per stage.\n\n### **4\ufe0f\u20e3 Identify pain points & dependencies**\n\nOverlay insights from validation (user quotes, analytics, ops blockers).\n\nMark with \u26a0\ufe0f or \ud83d\udd17 to show where discovery findings highlight complexity.\n\n\u2705 *Output:* Risks and cross-team dependencies made visible early.\n\n### **5\ufe0f\u20e3 Slice the MVP**\n\nDraw a horizontal line across the map and agree **what\u2019s in the first release**.\n\nUse these filters:\n\n- \ud83c\udfaf Does it deliver *end-to-end value* for the user?\n- \ud83d\udcb0 Does it support our success metric?\n- \ud83e\udde9 Can we build it without waiting on major dependencies?\n\n\u2705 *Output:* \u201cThin-slice\u201d MVP scope, written as epics or stories.\n\n*(Example: Apply \u2192 Verify \u2192 Approve manually \u2192 Notify \u2192 Fund)*\n\n### **6\ufe0f\u20e3 Define success & telemetry**\n\nFor each slice, define **success metrics and instrumentation.**\n\n**Example:**\n\n| Stage | Metric | Target |\n| --- | --- | --- |\n| Start application | % of visitors who start | +20% vs baseline |\n| Submit details | Completion rate | \u226580% |\n| Approval & payout | Avg. time to fund | <24h |\n| Retention | % repeat borrowers | +15% |\n\n\u2705 *Output:* MVP metric dashboard plan.\n\n### **7\ufe0f\u20e3 Agree next steps & owners**\n\nConvert MVP slices \u2192 backlog epics in Jira/Linear.\n\nAssign clear owners per vertical (PM, Design, Eng).\n\nSchedule the **Delivery Inception playback** to align wider teams.\n\n\u2705 *Output:* Aligned roadmap and playback deck.\n\n### \ud83d\udcca **Workshop Template**\n\n| Step | Description | Outputs | Owner | Status |\n| --- | --- | --- | --- | --- |\n| Goal & Persona | Clarify user + metric | User + metric | PM | \u2705 |\n| Journey Backbone | 5\u20137 top-level steps | Horizontal map | UX | \u2705 |\n| Actions / Tasks | Detailed vertical slices | Map of all actions | PM/UX/Eng | \ud83d\udd04 |\n| Pain Points | Add from validation | Risk markers | Ops/Data | \ud83d\udd04 |\n| MVP Slice | Define thin slice | MVP line + epic list | PM/Eng | \ud83d\udfe2 |\n| Success Metrics | Define telemetry | Metric sheet | Data | \ud83d\udfe2 |\n| Playback | Summarise and align | One-pager / deck | PM | \ud83d\udfe2 |\n\n### \ud83e\udde0 **Tips**\n\n- Focus on **story flow**, not backlog grooming.\n- Keep slices small - **ship learning, not volume.**\n- Revisit story maps after every major iteration or market change.\n- Use **colour-coding** (e.g. \ud83d\udc9a built, \ud83d\udfe1 next, \ud83d\udd34 risk).\n- Keep photos or digital copies in Notion to maintain a versioned record.\n\n### \ud83e\uddfe **Example Outputs (Funding Funnel MVP)**\n\n- **Goal:** Reduce drop-off in funding applications by 30%.\n- **Persona:** Existing customer, Medium SME, needs short-term cashflow.\n- **Journey Backbone:** Discover \u2192 Apply \u2192 Submit \u2192 Approve \u2192 Payout.\n- **MVP Slice:** Manual underwriting flow with instant eligibility & email notifications.\n- **Metric:** Submission rate +30%, time-to-fund <24h.\n\n### \ud83d\udcda **Further Reading**\n\n- [Jeff Patton - Story Mapping](https://jpattonassociates.com/user-story-mapping/)\n- https://www.nngroup.com/videos/journey-mapping-vs-story-mapping/\n", "storyboard": "# Storyboard\n\n*Ideas \u00b7 1-2 hrs \u00b7 Discovery, Ideation*\n\n## Purpose\n\nVisualise how an idea works in practice by sketching it as a sequence of user interactions. This helps uncover gaps and make the idea shareable.\n\n## When to Use\n\n- When you need to communicate a concept clearly\n- To test the flow of an idea before prototyping\n- As a bridge between ideation and evaluation\n\n## How to Run\n\n**Duration:** 1-2 hours\n\n**Materials needed:** Paper, markers\n\n**Steps:**\n\n1. Define the key moments of the idea or user journey (e.g., 4-8 steps).\n2. Draw the first frame (scene) - either on paper or digitally.\n3. Continue sketching frames for each step, adding simple drawings and short captions.\n4. When the sequence is complete, review as a group. Ask:\n    - Does it make sense?\n    - What could be improved?\n    - What's missing or unnecessary?\n5. Refine the storyboard. Optionally, evaluate using Rose, Thorn, Bud or Idea Beetle.\n\n## Tips\n\n- Doesn't need to be artistic - stick figures work fine\n- Use this as input for Design Dash or prototyping\n- Focus on the user's experience, not technical implementation\n\n## See Also\n\nhttps://www.nngroup.com/articles/storyboards-visualize-ideas/\n", "swot-analysis": "# SWOT Analysis\n\n*Evaluate \u00b7 1-2 hrs \u00b7 Alignment, Problem-Solving, Understanding the problem*\n\n## Purpose\n\nAssess the Strengths, Weaknesses, Opportunities, and Threats related to a project, idea, or strategy. Gives a balanced view of current position.\n\n## When to Use\n\n- To evaluate a new idea, team, or plan\n- When comparing options or approaches\n- At strategic planning sessions\n\n## How to Run\n\n**Duration:** 1-2 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes\n\n**Steps:**\n\n1. Share the desired end-state or objective (e.g., from OKRs or Newspaper Headline).\n2. Draw a quadrant with four sections: Strengths, Weaknesses, Opportunities, Threats.\n3. Ask participants to fill each quadrant with sticky notes.\n4. Cluster themes and label them.\n5. Vote on the most important factors in each quadrant.\n6. Discuss implications and generate \"How Might We\u2026\" questions to address them.\n\n## Tips\n\n- Keep focus on the specific goal, not a generic SWOT\n- Use it to generate next steps rather than just a static analysis\n- Internal factors = Strengths/Weaknesses; External factors = Opportunities/Threats\n\n## See Also\n\n- [Rose, Thorn, Bud]({{rose-thorn-bud}})\n- [How Might We]({{how-might-we}})\n- [Priority Map]({{priority-map}})\n", "t-bar-format": "# T-Bar Format\n\n*Techniques \u00b7 30 min \u00b7 Ideation*\n\n## Purpose\n\nTurn rough ideas into something that explains itself - combining a sketch, a name, and a short description. Creates consistency so ideas can be compared side by side.\n\n## When to Use\n\n- After idea generation\n- Before evaluation or decision-making\n- To create clear, shareable idea documentation\n\n## How to Run\n\n**Duration:** 30 minutes\n\n**Materials needed:** Paper, markers\n\n**Steps:**\n\n1. Ask each person to draw a large \"T\" on their page.\n2. In the top bar \u2192 give the idea a title.\n3. On the left side \u2192 draw a quick sketch of the idea.\n4. On the right side \u2192 write a short description or bullet points.\n5. Share T-Bars with the group.\n6. Use Secret Vote or Priority Map to narrow down.\n\n## Tips\n\n- The sketch doesn't need to be artistic - clarity over beauty\n- Works especially well before tactics like Impact/Effort Map\n- Creates a consistent format for comparing multiple ideas\n\n## See Also\n\nhttps://www.bbc.co.uk/gel/features/t-bar\n", "team-time": "# Team Time\n\n*Recipe \u00b7 3-4 hrs \u00b7 Alignment, Kickoff, Team Building*\n\n## Purpose\n\nSet a new team up for success by aligning on vision, roles, skills, and external stakeholders.\n\n## When to Use\n\n- When forming a brand-new team\n- After a re-org or major membership change\n- When you want to build trust and alignment quickly\n\n## How to Run\n\n**Duration:** 3-4 hours\n\n**Materials needed:** Whiteboard or digital workspace, sticky notes, markers\n\n**Steps:**\n\n1. **Newspaper Headline (30 min)** \u2013 Imagine future success together. Each person creates a headline describing the team's big win.\n2. **Sailboat (1 hr)** \u2013 Map what's driving the team forward (sails) and what might hold it back (anchors).\n3. **Roles & Responsibilities (1 hr)** \u2013 Clarify what each member does, discusses, and decides.\n4. **Skills Market (1 hr)** \u2013 Share current skills, hidden talents, and areas for growth.\n5. **Stakeholder Map (1 hr)** \u2013 Identify who outside the team has power or interest in your success.\n\n## Tips\n\n- Use this as a kickoff for new squads or project teams\n- Take photos of outputs and revisit after 3 months to see what's changed\n- Ensure all key team members are present \u2014 this only works with full participation\n\n## See Also\n\n- [Newspaper Headline]({{newspaper-headline}})\n- [Sailboat]({{sailboat}})\n- [Roles & Responsibilities]({{roles-responsibilities}})\n", "theme-sort": "# Theme Sort\n\n*Techniques \u00b7 10 min \u00b7 Alignment*\n\n## Purpose\n\nMake sense of large volumes of ideas, insights, or problems by clustering them into themes. Helps the group spot patterns and organise thinking.\n\n## When to Use\n\n- After brainstorming or feedback sessions\n- When sticky notes are piling up and need structure\n- To find patterns in qualitative data\n\n## How to Run\n\n**Duration:** 10 minutes\n\n**Materials needed:** Sticky notes, wall or digital workspace\n\n**Steps:**\n\n1. Clear a large space for notes.\n2. Place notes one at a time, reading them aloud.\n3. Each time, ask: \"Is this similar to something already here?\"\n    - If yes \u2192 place near related notes\n    - If identical \u2192 stack behind the original\n    - If not \u2192 create a new cluster\n4. Once everything is grouped, give each cluster a theme title.\n5. Review outliers to decide if they belong anywhere.\n\n## Tips\n\n- Easier if you theme sort as you go instead of leaving it all until the end\n- Use Priority Map or Secret Vote to decide which themes matter most\n- Involves the whole group in clustering for shared understanding\n\n## See Also\n\n- [Priority Map]({{priority-map}})\n- [Democratic Discussion]({{democratic-discussion}})\n", "who-what-when": "# Who What When\n\n*Decide \u00b7 10 min \u00b7 Alignment*\n\n# Who/What/When\n\n# Who/What/When\n\n## Purpose\n\nEnsure workshops end with clear commitments, not just discussion. Captures ownership, specific actions, and deadlines.\n\n## When to Use\n\n- At the end of any workshop\n- When you need accountability for follow-up actions\n- After any discussion that needs to result in concrete next steps\n\n## How to Run\n\n**Duration:** 10 minutes\n\n**Materials needed:** Whiteboard or digital workspace\n\n**Steps:**\n\n1. Draw three columns: Who, What, When.\n2. List each participant under \"Who.\"\n3. Ask each person to state what concrete action they can commit to. Write it under \"What.\"\n4. For each action, agree a deadline and write it under \"When.\"\n5. Review the list as a group and confirm commitments.\n\n## Tips\n\n- Push for specific dates, not vague timelines (\"next week\" isn't enough)\n- Encourage quieter participants to take at least one action\n- Capture and share the list afterwards to maintain accountability\n- Make actions specific and achievable\n\n## See Also\n", "willingness-to-pay-test": "# Willingness-to-Pay Test\n\n*Evaluate \u00b7 2 days \u00b7 Validation Solution*\n\n# **Purpose**\n\nFind the price range customers perceive as fair vs too high/low.\n\n# **When to Use**\n\n- Before finalising pricing\n- To test monetisation potential early\n\n# **How to Run**\n\n**Duration:** 1\u20132 days\n\n1. Ask the four **Van Westendorp** questions (too cheap, cheap, expensive, too expensive).\n2. Plot intersections to reveal acceptable range.\n3. Validate with interviews or prototype purchase screens.\n\n# **Example**\n\nSME survey (n = 60) \u2192 acceptable range \u00a39\u2013\u00a315/month.\n\n# **Tips**\n\n- Phrase in value language, not budget.\n- Compare across customer segments.\n\n# **Further Reading**\n\n- https://www.mindtheproduct.com/willingness-to-pay-the-product-metric-you-cant-afford-to-ignore/\n"};
+
+  function mdToHtml(md){
+    // strip the first H1 title line (shown separately in the panel header)
+    md = md.replace(/^#\s+.+\n+/, '');
+    var lines = md.split('\n');
+    var html = [];
+    var i = 0;
+    function inline(s){
+      s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      s = s.replace(/(^|[^*])\*([^*]+?)\*([^*]|$)/g, '$1<em>$2</em>$3');
+      s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+      s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      s = s.replace(/(^|[\s>])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+      return s;
+    }
+    while(i < lines.length){
+      var line = lines[i];
+      if(/^\s*$/.test(line)){ i++; continue; }
+      if(/^###\s+/.test(line)){ html.push('<h3>'+inline(line.replace(/^###\s+/,''))+'</h3>'); i++; continue; }
+      if(/^##\s+/.test(line)){ html.push('<h2>'+inline(line.replace(/^##\s+/,''))+'</h2>'); i++; continue; }
+      if(/^#\s+/.test(line)){ html.push('<h1>'+inline(line.replace(/^#\s+/,''))+'</h1>'); i++; continue; }
+      if(/^\s*---+\s*$/.test(line)){ html.push('<hr>'); i++; continue; }
+      if(/^>\s?/.test(line)){
+        var q = [];
+        while(i < lines.length && /^>\s?/.test(lines[i])){ q.push(inline(lines[i].replace(/^>\s?/,''))); i++; }
+        html.push('<blockquote>'+q.join('<br>')+'</blockquote>'); continue;
+      }
+      if(/^\|/.test(line)){
+        var rows = [];
+        while(i < lines.length && /^\|/.test(lines[i])){ rows.push(lines[i]); i++; }
+        if(rows.length && /^\|[\s:\-|]+\|$/.test(rows[1]||'')) rows.splice(1,1);
+        var t = '<table>';
+        rows.forEach(function(r, idx){
+          var cells = r.split('|').slice(1,-1).map(function(c){ return c.trim(); });
+          var tag = idx===0 ? 'th' : 'td';
+          t += '<tr>' + cells.map(function(c){ return '<'+tag+'>'+inline(c)+'</'+tag+'>'; }).join('') + '</tr>';
+        });
+        t += '</table>';
+        html.push(t); continue;
+      }
+      if(/^\s*[-*]\s+/.test(line)){
+        var items = [];
+        while(i < lines.length && /^\s*[-*]\s+/.test(lines[i])){
+          items.push('<li>'+inline(lines[i].replace(/^\s*[-*]\s+/,''))+'</li>');
+          i++;
+        }
+        html.push('<ul>'+items.join('')+'</ul>'); continue;
+      }
+      if(/^\s*\d+\.\s+/.test(line)){
+        var oitems = [];
+        while(i < lines.length && /^\s*\d+\.\s+/.test(lines[i])){
+          oitems.push('<li>'+inline(lines[i].replace(/^\s*\d+\.\s+/,''))+'</li>');
+          i++;
+        }
+        html.push('<ol>'+oitems.join('')+'</ol>'); continue;
+      }
+      var para = [line];
+      i++;
+      while(i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,3}\s|>|\||\s*[-*]\s|\s*\d+\.\s|\s*---+\s*$)/.test(lines[i])){
+        para.push(lines[i]); i++;
+      }
+      html.push('<p>'+inline(para.join(' '))+'</p>');
+    }
+    return html.join('\n');
+  }
+
+  function openGuide(slug, title){
+    var md = guideContent[slug];
+    if(!md) return;
+    document.getElementById('guide-panel-title').textContent = title;
+    document.getElementById('guide-panel-body').innerHTML = mdToHtml(md);
+    document.getElementById('guide-overlay').classList.add('open');
+    document.getElementById('guide-panel').classList.add('open');
+    document.getElementById('guide-panel-body').scrollTop = 0;
+  }
+  function closeGuide(){
+    document.getElementById('guide-overlay').classList.remove('open');
+    document.getElementById('guide-panel').classList.remove('open');
+  }
+  document.getElementById('guide-close').addEventListener('click', closeGuide);
+  document.getElementById('guide-overlay').addEventListener('click', closeGuide);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeGuide(); });
+
+  document.querySelectorAll('.lib-filter').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.lib-filter').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeCat = btn.getAttribute('data-cat');
+      renderLib();
+    });
+  });
+  document.getElementById('lib-table-body').addEventListener('click', function(e){
+    var a = e.target.closest('.guide-open-link');
+    if(!a) return;
+    e.preventDefault();
+    openGuide(a.getAttribute('data-slug'), a.getAttribute('data-title'));
+  });
+  renderLib();
+
+  var recipes = [
+    ["Design Dash","2 days","Blank page to testable prototype","Journey Map → Idea Storm → Priority Map → Storyboard → Prototype → Test"],
+    ["Idea Storm","3-4 hrs","Wide idea generation then refinement","How Might We → Mind Map → Idea Eight → T-Bar → Rose/Thorn/Bud"],
+    ["Get Unstuck","3-4 hrs","Diagnosing and unblocking","Sailboat → Five Whys → How Might We → Reverse Brainstorm → Rose/Thorn/Bud"],
+    ["Project Kick-Off","4 hrs","Aligning before starting","Premortem → Problem Statement → Assumption Collecting → Assumption Map → Hypothesis Statement"],
+    ["Team Time","3-4 hrs","New team alignment","Newspaper Headline → Sailboat → Roles & Responsibilities → Skills Market → Stakeholder Map"],
+    ["Retrospective","2 hrs","Reflect and improve","Mad/Sad/Glad (or Start/Stop/Continue, or Rose/Thorn/Bud) → Democratic Discussion → Who/What/When"]
+  ];
+  var rbody = document.getElementById('ml-recipes-body');
+  recipes.forEach(function(r){
+    var tr = document.createElement('tr');
+    tr.style.borderTop = '1px solid var(--border-soft)';
+    tr.innerHTML = '<td style="padding:8px 10px 8px 0;color:var(--text);font-weight:600;">'+r[0]+'</td>'+
+                   '<td style="padding:8px 10px;color:var(--text-faint);font-family:var(--font-mono);font-size:12px;">'+r[1]+'</td>'+
+                   '<td style="padding:8px 10px;color:var(--text-body);">'+r[2]+'</td>'+
+                   '<td style="padding:8px 0;color:var(--text-dim);font-size:12.5px;">'+r[3]+'</td>';
+    rbody.appendChild(tr);
+  });
+})();
+</script>
