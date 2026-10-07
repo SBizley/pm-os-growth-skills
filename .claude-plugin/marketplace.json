@@ -1,0 +1,14 @@
+{
+  "name": "pm-os",
+  "description": "Sophie Bizley's product management operating system for Claude.",
+  "owner": {
+    "name": "Sophie Bizley"
+  },
+  "plugins": [
+    {
+      "name": "pm-os",
+      "source": "./",
+      "description": "16 product management skills plus a shared context layer, for founding PMs and product teams."
+    }
+  ]
+}

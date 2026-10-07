@@ -1,0 +1,10 @@
+{
+  "name": "pm-os",
+  "version": "2.0.0",
+  "description": "A product management operating system for Claude: 16 skills across discovery, strategy, delivery and launch, plus a context layer that holds what's true about your product.",
+  "author": { "name": "Sophie Bizley", "url": "https://github.com/SBizley" },
+  "homepage": "https://github.com/SBizley/pm-os-growth-skills",
+  "repository": "https://github.com/SBizley/pm-os-growth-skills",
+  "license": "MIT",
+  "keywords": ["product-management", "prd", "discovery", "strategy", "founding-pm", "product-ops"]
+}
