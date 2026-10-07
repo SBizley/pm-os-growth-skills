@@ -6,7 +6,7 @@
 
 # **Purpose**
 
-Visualise the ecosystem surrounding your problem — who’s involved, what systems interact, and where friction emerges.
+Visualise the ecosystem surrounding your problem, who’s involved, what systems interact, and where friction emerges.
 
 # **When to Use**
 

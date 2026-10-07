@@ -1,8 +1,13 @@
+---
+name: "customer-validation"
+description: "Use when testing whether customers actually have a problem, or whether a proposed solution addresses it, before committing engineering time. Trigger on requests like validate this assumption, design a customer interview, or test this idea with users."
+---
+
 # Skill: Customer Validation
 
 ## Purpose
 Test whether real customers actually have the problem you think they
-have, and whether your proposed direction actually solves it — before
+have, and whether your proposed direction actually solves it, before
 you spend engineering time finding out the hard way. Covers both
 problem validation (does this pain exist and matter) and solution
 validation (does this direction address it).
@@ -24,13 +29,21 @@ validation (does this direction address it).
 - Any existing research on this segment, so you're not re-asking
   questions already answered
 
+## Context first (pm-os)
+Before starting, read whatever exists in `context/` (product, customers,
+metrics, bets, decisions, glossary). Don't ask for anything that's already
+written down there, and use the glossary's terms. When you finish, list
+anything this work changed (a new decision, a sharper customer insight, a
+metric definition) and offer to write it back to the right file in
+`context/`. That loop is what keeps the system current.
+
 ## Step-by-step process
 
 **1. Turn the riskiest assumption into a falsifiable test.**
 "Users want this feature" is not testable. "SMB merchants abandon
 onboarding because they can't estimate settlement time, not because the
 form is too long" is testable. State what evidence would prove the
-assumption wrong, not just what would confirm it — this is the
+assumption wrong, not just what would confirm it. This is the
 single biggest quality differentiator in validation work.
 
 **2. Choose the validation method to match the assumption type.**
@@ -44,15 +57,14 @@ single biggest quality differentiator in validation work.
 - **Usability of a specific flow** → moderated usability sessions with
   a prototype (hands off to Prototyping skill for the artifact itself)
 
-Don't default to interviews for everything — match the method to what
+Don't default to interviews for everything. Match the method to what
 you're actually trying to learn.
 
 **3. Write the interview/test guide before recruiting.**
-Use `templates/validation-interview-guide-template.md`. For interviews:
-ask about past behaviour, not future intentions ("tell me about the
+For interviews: ask about past behaviour, not future intentions ("tell me about the
 last time you tried to do X" beats "would you use a feature that does
 X?"). Hypothetical questions about hypothetical features produce
-unreliable signal — people are poor predictors of their own future
+unreliable signal: people are poor predictors of their own future
 behaviour.
 
 **4. Recruit for the segment, not for convenience.**
@@ -62,7 +74,7 @@ demand; include some skeptics, churned users, or non-users where the
 assumption concerns broader appeal.
 
 **5. Run the sessions with a clear separation of roles.**
-One person asks questions, one takes notes — don't do both if you can
+One person asks questions, one takes notes. Don't do both if you can
 help it, note-taking degrades listening quality. Ask open questions,
 resist the urge to pitch or defend the idea, and let silence sit
 instead of filling it.
@@ -77,8 +89,7 @@ theme.
 
 **7. Write the validation readout.**
 State the original assumption, what was tested, what was found, and
-whether the assumption is validated / invalidated / inconclusive —
-inconclusive is a legitimate outcome and should be reported as such
+whether the assumption is validated / invalidated / inconclusive. Inconclusive is a legitimate outcome and should be reported as such
 rather than forced into a direction.
 
 ## Output
@@ -102,15 +113,15 @@ step.
 ## Common failure modes to catch
 - Leading questions ("wouldn't it be great if...") that produce
   false-positive enthusiasm
-- Confusing politeness for validation — people are reluctant to say an
+- Confusing politeness for validation: people are reluctant to say an
   idea is bad to your face; watch behaviour and past-tense stories more
   than stated opinions
 - Stopping at the first session that confirms the hypothesis you wanted
 
 ## Hands off to
-- **Prototyping** — problem-validated opportunities are what get a
+- **Prototyping**: problem-validated opportunities are what get a
   prototype built for solution testing
-- **Experimentation** — solution-validated concepts that need
+- **Experimentation**: solution-validated concepts that need
   quantitative confirmation at scale move to an experiment
-- **pm-os PRD writer** — validated opportunities are the evidence base
+- **PRD Generation**: validated opportunities are the evidence base
   a PRD's problem statement should cite

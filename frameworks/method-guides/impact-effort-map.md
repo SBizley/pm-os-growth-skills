@@ -35,7 +35,7 @@ Quickly sort ideas by how much impact they deliver vs how much effort they requi
 
 ## Tips
 
-- Encourage honesty about effort levels — teams tend to underestimate
+- Encourage honesty about effort levels: teams tend to underestimate
 - Works well paired with Secret Vote if there are many ideas
 - Revisit regularly as priorities shift
 

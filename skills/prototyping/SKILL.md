@@ -1,8 +1,13 @@
+---
+name: "prototyping"
+description: "Use when making an opportunity or idea tangible enough to react to, matching prototype fidelity to the specific question being asked. Trigger on requests like build a prototype for X, what fidelity do I need, or get this in front of users fast."
+---
+
 # Skill: Prototyping
 
 ## Purpose
-Make an opportunity tangible enough to react to — for users,
-stakeholders, or engineers — as cheaply and quickly as the question
+Make an opportunity tangible enough to react to (for users,
+stakeholders or engineers) as cheaply and quickly as the question
 requires. The core discipline here is matching prototype fidelity to
 the question being asked, not defaulting to the highest-effort option.
 
@@ -18,12 +23,20 @@ the question being asked, not defaulting to the highest-effort option.
 ## Inputs needed
 - The validated opportunity and job story from Discovery/Validation
 - The specific question the prototype needs to answer (this determines
-  fidelity — see step 1)
+  fidelity, see step 1)
 - Design/brand context if available (existing component library, style
   guide)
 - Time and tooling constraints (what's realistic to produce in the time
-  available — Claude artifacts, Figma, clickable mockup tools, or a
+  available: Claude artifacts, Figma, clickable mockup tools, or a
   real coded prototype)
+
+## Context first (pm-os)
+Before starting, read whatever exists in `context/` (product, customers,
+metrics, bets, decisions, glossary). Don't ask for anything that's already
+written down there, and use the glossary's terms. When you finish, list
+anything this work changed (a new decision, a sharper customer insight, a
+metric definition) and offer to write it back to the right file in
+`context/`. That loop is what keeps the system current.
 
 ## Step-by-step process
 
@@ -33,7 +46,7 @@ fidelity to that question:
 - *"Does this concept make sense at all?"* → sketches, a single static
   screen, or a one-paragraph concept description
 - *"Does this flow make sense?"* → clickable low-fi wireframes (grey
-  boxes, no visual polish) — polish here is wasted effort and can
+  boxes, no visual polish). Polish here is wasted effort and can
   distract testers from flow issues
 - *"Does this feel right / would people trust it?"* → high-fidelity
   visual mockup, on-brand
@@ -45,42 +58,40 @@ fidelity to that question:
   real "join waitlist" button, a real ad)
 
 **2. Write the prototype brief before building.**
-Use `templates/prototype-brief-template.md`: the question, the
+Cover: the question, the
 fidelity level chosen and why, the specific flow/scenario to cover, and
 what "useful signal" looks like when testing is done. This prevents
 scope creep into building more than the question requires.
 
 **3. Build the smallest version that answers the question.**
 Resist adding edge cases, extra screens, or polish that don't serve the
-primary question — every extra element is something a test participant
+primary question. Every extra element is something a test participant
 might react to instead of the thing you actually need feedback on.
 
 **4. Decide the test format alongside the build.**
 - **Moderated**: you walk a participant through it live, watching
-  behaviour and asking follow-ups — best for early-stage or ambiguous
+  behaviour and asking follow-ups. Best for early-stage or ambiguous
   concepts
-- **Unmoderated**: participants use it alone and you review recordings
-  — better once the flow is concrete enough that your presence would
+- **Unmoderated**: participants use it alone and you review recordings. Better once the flow is concrete enough that your presence would
   bias behaviour
 - **In-context / smoke test**: dropped into a real environment (a real
   page, a real email) to measure actual behaviour rather than stated
-  reaction — the strongest signal, but only answers narrow questions
+  reaction, the strongest signal, but only answers narrow questions
 
 **5. Run it against the Customer Validation skill's method.**
-Hands off directly — same interview/test-guide discipline applies:
+Hands off directly. Same interview/test-guide discipline applies:
 past-behaviour framing, don't lead the witness, synthesise across
 sessions.
 
 **6. Capture build-relevant output alongside user-reaction output.**
 If this prototype is also meant to help engineering scope effort,
 explicitly separate "what we learned about user reaction" from "what we
-learned about technical complexity" — they're different outputs for
+learned about technical complexity". They're different outputs for
 different audiences and shouldn't be blended into one document.
 
 ## Output
 A prototype (at the chosen fidelity) plus a short brief covering: the
-question it answers, fidelity rationale, the scenario/flow covered, and
-— once tested — a findings summary in the same format as Customer
+question it answers, fidelity rationale, the scenario/flow covered, and, once tested, a findings summary in the same format as Customer
 Validation's readout.
 
 ## Quality checklist
@@ -97,14 +108,14 @@ Validation's readout.
 - Polishing visuals before flow is validated, wasting rework when flow
   changes
 - Treating stakeholder enthusiasm for the prototype as equivalent to
-  user validation — they're different audiences with different biases
+  user validation. They're different audiences with different biases
 
 ## Hands off to
-- **Customer Validation** — uses the same test-guide and synthesis
+- **Customer Validation**: uses the same test-guide and synthesis
   discipline for the actual sessions
-- **Experimentation** — a prototype that tests well moves to a
+- **Experimentation**: a prototype that tests well moves to a
   quantitative experiment before full build, where the sample size
   justifies it
-- **pm-os PRD writer** — the prototype and its findings become the
+- **PRD Generation**: the prototype and its findings become the
   PRD's "what we tried and learned" section, and often its wireframe
   reference

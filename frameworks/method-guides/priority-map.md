@@ -23,12 +23,12 @@ Help the group make trade-offs by ranking items against two important criteria. 
 1. Draw a two-axis grid on a large surface. Label the axes with two criteria (examples: Impact vs Effort, Risk vs Knowledge, Urgency vs Importance).
 2. Write each idea or item on a sticky note.
 3. One by one, place the sticky notes on the grid. Ask, "Is this more or less than that one?" to find the right position.
-4. Discuss trade-offs openly — the conversation is as valuable as the placement.
+4. Discuss trade-offs openly: the conversation is as valuable as the placement.
 5. Review the distribution and agree which quadrant(s) you'll focus on.
 
 ## Tips
 
-- Don't over-index on precision — the goal is relative comparison
+- Don't over-index on precision: the goal is relative comparison
 - Document the rationale behind placements, not just the output
 - Can use any two criteria that matter for your context
 

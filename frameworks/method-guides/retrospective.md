@@ -33,7 +33,7 @@ Reflect on recent work to celebrate successes, identify issues, and agree on imp
 
 ## Tips
 
-- Keep retros safe and constructive — avoid blame
+- Keep retros safe and constructive: avoid blame
 - Always close with 2-3 clear actions, not just reflections
 - Rotate the format to keep retros fresh
 - Celebrate wins before diving into problems

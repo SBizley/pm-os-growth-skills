@@ -29,8 +29,7 @@ What result would tell you the direction is right vs. wrong:
 ---
 
 ## Findings (fill in after testing)
-See `validation-interview-guide-template.md` synthesis format —
-findings should be logged there and summarised here.
+See `validation-interview-guide-template.md` synthesis format. Findings should be logged there and summarised here.
 
 **User-reaction signal:**
 

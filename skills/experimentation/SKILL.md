@@ -1,8 +1,13 @@
+---
+name: "experimentation"
+description: "Use when designing or reading an A/B test or experiment so it actually answers the intended question, with proper sample size and guardrail metrics. Trigger on requests like design this experiment, read these test results, or did this feature actually work."
+---
+
 # Skill: Experimentation
 
 ## Purpose
 Design and read experiments that actually answer the question they're
-meant to answer — turning "did that work?" into a pre-registered,
+meant to answer, turning "did that work?" into a pre-registered,
 statistically sound test rather than a post-hoc story fitted to
 whatever the dashboard shows afterward.
 
@@ -24,10 +29,18 @@ whatever the dashboard shows afterward.
   through the relevant flow
 - Constraints: minimum test duration the business will tolerate,
   seasonality risk, any regulatory/compliance limits on what can be
-  tested live (relevant in payments/fintech — check what needs
+  tested live (relevant in payments/fintech, check what needs
   compliance sign-off before launch)
 - Analytics/experimentation tooling available (in-house platform,
   third-party tool, or manual cohort analysis)
+
+## Context first (pm-os)
+Before starting, read whatever exists in `context/` (product, customers,
+metrics, bets, decisions, glossary). Don't ask for anything that's already
+written down there, and use the glossary's terms. When you finish, list
+anything this work changed (a new decision, a sharper customer insight, a
+metric definition) and offer to write it back to the right file in
+`context/`. That loop is what keeps the system current.
 
 ## Step-by-step process
 
@@ -40,7 +53,7 @@ result.
 **2. Pre-register success criteria before launch.**
 Primary metric, minimum detectable effect (MDE) you actually care
 about, and the decision rule ("if primary metric improves by X% with
-statistical significance, we ship; if not, we don't") — written down
+statistical significance, we ship; if not, we don't"), written down
 *before* the data comes in. This is the single biggest defence against
 post-hoc rationalisation and metric shopping.
 
@@ -48,7 +61,7 @@ post-hoc rationalisation and metric shopping.
 Given baseline conversion/metric rate, desired MDE, and traffic volume,
 estimate how long the test needs to run to reach significance. State
 this explicitly rather than "peeking" and stopping whenever the result
-looks favourable — early stopping on a favourable-looking result
+looks favourable. Early stopping on a favourable-looking result
 inflates false positive rates substantially.
 
 **4. Choose the right design for the question.**
@@ -57,10 +70,10 @@ inflates false positive rates substantially.
 - **A/B/n**: multiple variants, more traffic required, adjust
   significance threshold for multiple comparisons
 - **Sequential/holdout**: when true randomisation isn't feasible
-  (e.g., B2B sales-assisted flows) — compare a held-out group over time
+  (e.g., B2B sales-assisted flows), compare a held-out group over time
   instead
 - **Pre/post with strong caveats**: last resort when neither is
-  possible — flag confounding risk explicitly (seasonality, concurrent
+  possible, flag confounding risk explicitly (seasonality, concurrent
   changes) rather than presenting it with false confidence
 
 **5. Define guardrail metrics.**
@@ -79,18 +92,17 @@ retroactively.**
 Report: did the primary metric hit the pre-registered bar, at what
 confidence level, what happened to guardrails, and what the decision
 rule says to do. If the result is ambiguous or the effect is real but
-smaller than the MDE, say so — "no detectable effect at this sample
+smaller than the MDE, say so: "no detectable effect at this sample
 size" is a different, more honest conclusion than "it didn't work."
 
 **8. Write the experiment readout.**
-Use `templates/experiment-design-doc-template.md` (doubles as the
-pre-registration doc and the readout — fill the top half before launch,
-the bottom half after).
+Doubles as the pre-registration doc and the readout. Fill the top half before launch,
+the bottom half after.
 
 ## Output
 An experiment design doc (pre-launch) and readout (post-launch):
 hypothesis, primary metric + MDE, sample size/duration calculation,
-design type, guardrails, and — after running — the result read against
+design type, guardrails, and, after running, the result read against
 the pre-registered decision rule.
 
 ## Quality checklist
@@ -106,7 +118,7 @@ the pre-registered decision rule.
 
 ## Common failure modes to catch
 - **Peeking and stopping early** on a favourable-looking result
-- **Metric shopping** after the fact — reporting whichever secondary
+- **Metric shopping** after the fact: reporting whichever secondary
   metric moved instead of the pre-registered primary one
 - **Multiple simultaneous changes** making it impossible to attribute
   the result
@@ -114,9 +126,9 @@ the pre-registered decision rule.
 - **Underpowered tests** presented with unwarranted confidence
 
 ## Hands off to
-- **Discovery** — a "no effect" or invalidated result feeds back into
+- **Discovery**: a "no effect" or invalidated result feeds back into
   the opportunity tree as new evidence, often reframing the original
   opportunity
-- **pm-os prioritisation / roadmap builder** — validated wins get
+- **Prioritisation and Roadmap**: validated wins get
   scaled and rolled into the roadmap; invalidated ones get deprioritised
   with evidence attached, not just dropped silently

@@ -4,16 +4,16 @@
 
 ---
 
-## Phase 1 — Context brief
-*Facts and current state only — no direction or opinions yet.*
+## Phase 1: Context brief
+*Facts and current state only, no direction or opinions yet.*
 
-**Current performance:** (revenue, growth, retention, usage — whichever's the relevant top-line metric)
+**Current performance:** (revenue, growth, retention, usage, whichever's the relevant top-line metric)
 
 **Company-level priorities this strategy must nest inside:**
 
 **Competitive landscape:**
 
-**Prior strategy for this area (if any) — still true?**
+**Prior strategy for this area (if any), still true?**
 
 **Known constraints:** (budget, team, tech debt, regulatory)
 
@@ -26,7 +26,7 @@
 
 ---
 
-## Phase 2 — Research findings
+## Phase 2: Research findings
 *Organized by the question each finding answers.*
 
 **Q1: [open question from context]**
@@ -41,15 +41,15 @@ Source:
 
 ---
 
-## Phase 3 — Strategy draft
+## Phase 3: Strategy draft
 
-**Where to play:** (customers, segments, problems — in scope)
+**Where to play:** (customers, segments, problems, in scope)
 
 **Where we won't play:** (explicitly out of scope)
 
 **How to win:** (the specific, defensible advantage this relies on)
 
-**Capabilities required:** (what has to be true internally — team, tech, partnerships)
+**Capabilities required:** (what has to be true internally, team, tech, partnerships)
 
 **Strategic pillars:**
 1.
@@ -62,7 +62,7 @@ Source:
 
 ---
 
-## Phase 4 — Review readout
+## Phase 4: Review readout
 
 | Check | Pass? | Notes |
 |---|---|---|

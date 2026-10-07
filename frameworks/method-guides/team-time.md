@@ -30,7 +30,7 @@ Set a new team up for success by aligning on vision, roles, skills, and external
 
 - Use this as a kickoff for new squads or project teams
 - Take photos of outputs and revisit after 3 months to see what's changed
-- Ensure all key team members are present — this only works with full participation
+- Ensure all key team members are present: this only works with full participation
 
 ## See Also
 

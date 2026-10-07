@@ -6,7 +6,7 @@
 State it in falsifiable form:
 
 ## What would prove this wrong
-(Not what would confirm it — what would disprove it)
+(Not what would confirm it, what would disprove it)
 
 ## Method
 - [ ] JTBD / switch interview
@@ -46,6 +46,6 @@ Closing:
 ## Call
 - [ ] Validated
 - [ ] Invalidated
-- [ ] Inconclusive — reason:
+- [ ] Inconclusive: reason:
 
 ## Recommended next step

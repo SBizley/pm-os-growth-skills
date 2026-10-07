@@ -32,7 +32,7 @@ Evaluate an idea, project, or process by identifying positives (roses), negative
 ## Tips
 
 - This method works well in both retros and ideation sessions
-- Keep the pace brisk — it's designed as a quick group pulse
+- Keep the pace brisk: it's designed as a quick group pulse
 - Balance focus between celebrating roses and addressing thorns
 
 ## See Also
