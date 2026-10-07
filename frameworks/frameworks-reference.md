@@ -1,7 +1,7 @@
 # Frameworks Reference
 
 Companion doc for the discovery / market-sizing / customer-validation /
-prototyping / experimentation skills. This is a "how it works" reference, the skills tell you *when* to reach for each one.
+prototyping / experimentation skills. This is a "how it works" reference. The skills tell you *when* to reach for each one.
 
 ## Opportunity Solution Tree
 Structure: **Desired Outcome** (a business metric you're trying to move)

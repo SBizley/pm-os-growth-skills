@@ -44,7 +44,7 @@ It's not the one who should decide what the company bets on.
   a day a week
 
 **Since then:**
-- This repo: 15 skills, a context layer, playbooks and a worked example,
+- This repo: 16 skills, a context layer, playbooks and a worked example,
   built and committed with Claude Code
 - My portfolio site, deployed through GitHub
 - Skills I run every day, including the Humaniser (the most-used one) and
