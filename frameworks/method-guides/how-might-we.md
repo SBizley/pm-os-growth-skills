@@ -27,12 +27,12 @@ Transform problems into open-ended, solution-oriented questions. Instead of sayi
     - Example: Problem → "Customers don't contact us when they have an issue." → HMW → "How might we make it easier for customers to contact us when they have an issue?"
 3. Ask participants to write as many HMW questions as they can on sticky notes.
 4. Share, group similar ones, and discuss.
-5. Prioritise using a Priority Map or Secret Vote.
+5. Prioritise with a quick dot vote.
 
 ## Tips
 
 - Make sure the phrasing allows for multiple answers (avoid overly narrow wording)
-- Use HMWs directly as prompts for idea-generation tactics like Idea Eight
+- Use HMWs directly as prompts for idea-generation tactics like Crazy 8s
 - Frame questions optimistically - focus on opportunities, not just fixing problems
 
 ## See Also

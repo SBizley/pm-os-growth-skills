@@ -64,9 +64,12 @@ The two in "Challenge" are the ones I use most. I run Product Review on
 my own PRDs, and it regularly catches things I'd have been embarrassed to
 have pointed out in a meeting.
 
-There's also a [hub page](pm-hub.html) for browsing, 50
-[facilitation method guides](frameworks/method-guides/INDEX.md), and
-[templates](templates/) for every output.
+There's also a [hub page](pm-hub.html) for browsing,
+[templates](templates/) for every output, and the
+[14 workshop methods](frameworks/method-guides/INDEX.md) I actually run.
+I cut that library down from 50. A long catalogue looks thorough, but
+the three I'd run first at a new company are Crazy 8s, Story Mapping and
+a Value Proposition Exercise, and those are written the way I run them.
 
 ## Using it
 

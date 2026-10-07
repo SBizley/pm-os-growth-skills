@@ -20,11 +20,11 @@ Set a new team up for success by aligning on vision, roles, skills, and external
 
 **Steps:**
 
-1. **Newspaper Headline (30 min)** – Imagine future success together. Each person creates a headline describing the team's big win.
-2. **Sailboat (1 hr)** – Map what's driving the team forward (sails) and what might hold it back (anchors).
-3. **Roles & Responsibilities (1 hr)** – Clarify what each member does, discusses, and decides.
-4. **Skills Market (1 hr)** – Share current skills, hidden talents, and areas for growth.
-5. **Stakeholder Map (1 hr)** – Identify who outside the team has power or interest in your success.
+1. **Newspaper Headline (30 min)** - Imagine future success together. Each person creates a headline describing the team's big win.
+2. **Sailboat (1 hr)** - Map what's driving the team forward (sails) and what might hold it back (anchors).
+3. **Roles & Responsibilities (1 hr)** - Clarify what each member does, discusses, and decides.
+4. **Skills Market (1 hr)** - Share current skills, hidden talents, and areas for growth.
+5. **Stakeholder Map (1 hr)** - Identify who outside the team has power or interest in your success.
 
 ## Tips
 

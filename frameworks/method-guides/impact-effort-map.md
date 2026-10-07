@@ -31,12 +31,12 @@ Quickly sort ideas by how much impact they deliver vs how much effort they requi
     - High impact, high effort → "Do later"
     - Low impact, low effort → "Maybe later / nice-to-have"
     - Low impact, high effort → "Forget it"
-4. Create a plan for "Do now" items using Sticky Steps.
+4. Create a plan for "Do now" items with an owner and a date for each one.
 
 ## Tips
 
 - Encourage honesty about effort levels: teams tend to underestimate
-- Works well paired with Secret Vote if there are many ideas
+- Works well paired with a silent dot vote if there are many ideas
 - Revisit regularly as priorities shift
 
 ## See Also

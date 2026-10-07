@@ -16,7 +16,7 @@ Three layers:
 3. **`playbooks/`**: how to use it as a founding PM, or as product ops.
 
 Plus `examples/fernway/` (a fictional worked example), `templates/`,
-`frameworks/` (reference and 50 method guides), and `pm-hub.html` (the
+`frameworks/` (reference and the 14 method guides I actually use), and `pm-hub.html` (the
 browsable hub).
 
 ## Repo structure
@@ -65,6 +65,7 @@ commit personal data, credentials, or anything from my own job search.
 - Internal navigation goes through JS (`.jump` + `openAndScroll`, or the
   delegated `a[href^="#"]` handler) because preview sandboxes mishandle
   native fragment jumps.
+- Keep the method library short. Add a method only if I actually run it.
 - After structural changes, check every method guide still opens in the
   panel (a jsdom script that clicks each row works well).
 
