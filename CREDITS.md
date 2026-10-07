@@ -21,12 +21,12 @@ off to each other. Here's where the underlying ideas come from.
 | Product sense case structure (used in my interview prep, not in this repo) | Ben Erez, via Lenny's Newsletter |
 
 ## Method guides
-The 50 facilitation guides in `frameworks/method-guides/` are my own
-write-ups of widely used workshop and research methods (Five Whys,
-Sailboat, Card Sorting and so on). I've kept the "further reading" links
-in each guide pointing to the sources I learned them from, mostly
-Nielsen Norman Group, Mind the Product, Google's Design Sprint Kit and the
-Interaction Design Foundation.
+The 14 guides in `frameworks/method-guides/` are my own write-ups of
+widely used workshop and research methods. Crazy 8s comes from Google's
+Design Sprint Kit, Story Mapping from Jeff Patton, and the Value
+Proposition Exercise builds on Strategyzer's canvas. The rest link to
+the sources I learned them from, mostly Nielsen Norman Group and Mind
+the Product.
 
 ## Humaniser
 Built from Wikipedia's "Signs of AI writing" page, plus patterns I kept

@@ -20,11 +20,11 @@ Align the team, clarify the problem, and surface assumptions and risks before st
 
 **Steps:**
 
-1. **Premortem (1 hr)** – Pretend the project failed. Write down reasons why.
-2. **Problem Statement (1 hr)** – Agree on the problem and how you'll know success.
-3. **Assumption Collecting (45 min)** – Surface what the team believes about the user, product, and business.
-4. **Assumption Map (45 min)** – Plot assumptions by risk and certainty to find the riskiest unknowns.
-5. **Hypothesis Statement (30 min)** – Frame key assumptions as experiments to test.
+1. **Premortem (1 hr)** - Pretend the project failed. Write down reasons why.
+2. **Problem Statement (1 hr)** - Agree on the problem and how you'll know success.
+3. **Assumption Collecting (45 min)** - Surface what the team believes about the user, product, and business.
+4. **Assumption Map (45 min)** - Plot assumptions by risk and certainty to find the riskiest unknowns.
+5. **Hypothesis Statement (30 min)** - Frame key assumptions as experiments to test.
 
 ## Tips
 
