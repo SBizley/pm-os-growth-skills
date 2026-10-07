@@ -29,7 +29,7 @@ Make quick, democratic decisions while avoiding bias or dominant voices.
 ## Tips
 
 - Works best when paired with T-Bar Format or storyboards so people understand what they're voting on
-- Keep it secret until reveal — that's what prevents bias
+- Keep it secret until reveal: that's what prevents bias
 - Can use dot voting as a visible alternative, but lose the anti-bias benefit
 
 ## See Also

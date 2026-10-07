@@ -19,13 +19,13 @@ Traffic/volume available: · Required sample: · Estimated duration:
 - [ ] A/B
 - [ ] A/B/n
 - [ ] Sequential / holdout
-- [ ] Pre/post (last resort — flag confounds below)
+- [ ] Pre/post (last resort: flag confounds below)
 
 Confound risks (seasonality, concurrent changes, compliance limits):
 
 ### Guardrail metrics
-1. — must not move by more than ___
-2. — must not move by more than ___
+1. [metric]: must not move by more than ___
+2. [metric]: must not move by more than ___
 
 ### Decision rule
 If primary metric improves by ≥___% at significance level ___, we
@@ -37,7 +37,7 @@ If primary metric improves by ≥___% at significance level ___, we
 ## READOUT (fill after full pre-registered duration)
 
 ### Did it run the full duration?
-Yes / No — if no, why:
+Yes / No, if no, why:
 
 ### Primary metric result
 Observed effect: · Confidence level: · Hit pre-registered bar? Y/N
@@ -50,9 +50,9 @@ Observed effect: · Confidence level: · Hit pre-registered bar? Y/N
 ### External events during test window
 
 ### Conclusion
-- [ ] Effect confirmed — ship/scale
+- [ ] Effect confirmed: ship/scale
 - [ ] No effect
 - [ ] No detectable effect at this sample size (different from "no
-      effect" — note if a follow-up with more power is warranted)
+      effect", note if a follow-up with more power is warranted)
 
 ### Next step

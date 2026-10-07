@@ -28,7 +28,7 @@ Align the team, clarify the problem, and surface assumptions and risks before st
 
 ## Tips
 
-- Make sure all key stakeholders are present — otherwise hidden risks stay hidden
+- Make sure all key stakeholders are present, otherwise hidden risks stay hidden
 - Revisit the Hypotheses after your first research sprint
 - Document everything and share immediately after the session
 

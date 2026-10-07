@@ -28,7 +28,7 @@ Agree as a group on principles for how the session will run. Helps prevent poor 
 
 ## Tips
 
-- Encourage the group to self-manage — don't let the facilitator be the only enforcer
+- Encourage the group to self-manage: don't let the facilitator be the only enforcer
 - Keep principles short and memorable
 - Common examples: one conversation at a time, phones away, build on ideas
 

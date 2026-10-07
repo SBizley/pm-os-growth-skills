@@ -1,11 +1,11 @@
 # Value Proposition Canvas: [Product / Opportunity Name]
 
-**Author:** · **Date:** · **Segment:** [who this canvas is for — one segment per canvas]
+**Author:** · **Date:** · **Segment:** [who this canvas is for, one segment per canvas]
 
 ## Customer Profile
 
 ### Customer jobs
-What the customer is trying to get done — functional, social, and emotional jobs.
+What the customer is trying to get done, functional, social, and emotional jobs.
 1.
 2.
 3.
@@ -34,21 +34,21 @@ What you offer that helps the customer get the job(s) done.
 
 ### Pain relievers
 How specifically each product/service alleviates a named pain above. Reference the pain it maps to.
-1. — relieves pain:
-2. — relieves pain:
-3. — relieves pain:
+1. [feature]: relieves pain:
+2. [feature]: relieves pain:
+3. [feature]: relieves pain:
 
 ### Gain creators
 How specifically each product/service produces a named gain above. Reference the gain it maps to.
-1. — creates gain:
-2. — creates gain:
-3. — creates gain:
+1. [feature]: creates gain:
+2. [feature]: creates gain:
+3. [feature]: creates gain:
 
 ---
 
 ## Fit check
 
-- [ ] Every pain reliever maps to a real, ranked pain — not an invented one
+- [ ] Every pain reliever maps to a real, ranked pain, not an invented one
 - [ ] Every gain creator maps to a real, ranked gain
 - [ ] The top 1-3 jobs are addressed by at least one product/service
 - [ ] This has been validated with actual customers, not just reasoned through internally (see Customer Validation skill)

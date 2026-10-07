@@ -25,14 +25,14 @@ Give the team radical focus by setting one clear objective and linking it to mea
 3. Discuss and vote to select one primary objective.
 4. Brainstorm potential metrics that would show progress toward this objective.
 5. Narrow down to three metrics and turn them into measurable Key Results (e.g., "Get 40 pre-orders per month").
-6. Ensure the Key Results feel like a stretch — achievable, but not guaranteed.
+6. Ensure the Key Results feel like a stretch, achievable, but not guaranteed.
 
 ## Tips
 
 - Avoid setting multiple objectives: it dilutes focus
 - Revisit OKRs regularly (weekly or bi-weekly) to track progress
 - Key Results should be quantitative, not qualitative
-- Aim for 70% achievement — if you hit 100%, you aimed too low
+- Aim for 70% achievement: if you hit 100%, you aimed too low
 
 ## See Also
 

@@ -19,7 +19,7 @@ Acceptance Criteria:
 - [Testable criterion 1]
 - [Testable criterion 2]
 - [Testable criterion 3]
-- [Testable criterion 4 — edge case or error handling]
+- [Testable criterion 4: edge case or error handling]
 Priority: [Must Have / Should Have / Could Have / Won't Have]
 Estimated Effort: [S / M / L / XL]
 Strategic Link: [Which pillar/JTBD this serves]
@@ -94,6 +94,6 @@ Success Metrics: [With targets and measurement methods]
 
 ## 8. Open Questions & Risks
 Open Questions: [Unresolved decisions needing stakeholder input]
-Risks: [Technical, market, resource, dependency — each with mitigation]
+Risks: [Technical, market, resource, dependency, each with mitigation]
 
 ## Overall Confidence: [X]%

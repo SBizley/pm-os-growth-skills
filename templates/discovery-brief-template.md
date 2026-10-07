@@ -6,7 +6,7 @@
 What triggered this (verbatim ask, ticket, metric, quote):
 
 ## 2. Reframed problem statement
-Not a solution — the customer need, in their language:
+Not a solution, the customer need, in their language:
 
 ## 3. Opportunity Solution Tree (top branches)
 **Desired outcome:**
@@ -36,4 +36,4 @@ When [situation], I want to [motivation], so I can [expected outcome].
 ## 8. Recommendation
 - [ ] Size it
 - [ ] Validate the riskiest assumption first
-- [ ] Park — not enough evidence / not aligned to strategy
+- [ ] Park: not enough evidence / not aligned to strategy

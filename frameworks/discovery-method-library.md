@@ -2,7 +2,7 @@
 
 A reference catalogue of named discovery activities, organized by what
 you're trying to learn and how much time you have. Pairs with the
-Discovery skill — use that skill to scope the opportunity and identify
+Discovery skill, use that skill to scope the opportunity and identify
 the riskiest assumption, then come here to pick the specific activity
 to run.
 
@@ -74,12 +74,12 @@ to run.
 
 ## Method categories (for deeper reference)
 
-- **Problem Understanding** — Five Whys, Customer Interview Synthesis, Journey Map, Empathy Map, Context Map / Service Blueprint, Problem Tree Analysis, Quantify/Qualify the Problem
-- **Problem Framing** — Problem Statement, How Might We, Hypothesis Statement, Assumption Map
-- **Ideation** — Idea Eight, Mind Map, T-Bar Format, Storyboard, Assumption Reversal
-- **Solution Validation** — Willingness-to-Pay Test, Conjoint Analysis, Fake Door Test, Proposition Testing, Prototype Usability Testing, Guerrilla Testing, Business Model Road Test, Concierge Test, Card Sorting, Onboarding A/B Test
-- **Decision & Delivery Planning** — Impact/Effort Map, Priority Map, Story Mapping, Premortem, SWOT Analysis, Rose/Thorn/Bud
-- **Team & Facilitation** — OKRs, Newspaper Headline, Sailboat, Retrospective formats, Roles & Responsibilities, Stakeholder Map
+- **Problem Understanding**: Five Whys, Customer Interview Synthesis, Journey Map, Empathy Map, Context Map / Service Blueprint, Problem Tree Analysis, Quantify/Qualify the Problem
+- **Problem Framing**: Problem Statement, How Might We, Hypothesis Statement, Assumption Map
+- **Ideation**: Idea Eight, Mind Map, T-Bar Format, Storyboard, Assumption Reversal
+- **Solution Validation**: Willingness-to-Pay Test, Conjoint Analysis, Fake Door Test, Proposition Testing, Prototype Usability Testing, Guerrilla Testing, Business Model Road Test, Concierge Test, Card Sorting, Onboarding A/B Test
+- **Decision & Delivery Planning**: Impact/Effort Map, Priority Map, Story Mapping, Premortem, SWOT Analysis, Rose/Thorn/Bud
+- **Team & Facilitation**: OKRs, Newspaper Headline, Sailboat, Retrospective formats, Roles & Responsibilities, Stakeholder Map
 
 ## How to run any method
 
